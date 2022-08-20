@@ -47,7 +47,7 @@ export default function ProductList() {
           for="category"
           className="block mt-2 text-sm font-medium text-gray-900 dark:text-gray-400"
         >
-          Select an option
+          Select an Category
         </label>
         <select
           id="category"
@@ -55,7 +55,7 @@ export default function ProductList() {
           value={select}
           onChange={(e) => setSelect(e.target.value)}
         >
-          <option value="choose">Choose</option>
+          <option value="choose">All</option>
           <option value="electronics">electronics</option>
           <option value="jewelery">jewelery</option>
           <option value="men's clothing">men's clothing</option>
@@ -90,7 +90,7 @@ export default function ProductList() {
           data.map((product) => (
             <li key={product.id}>
               <NavLink to={`detail/${product.id}`}>
-                <div className="p-10 flex flex-col justify-center items-center w-80	mt-5 m-h-96 mr-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div className="p-10 flex flex-col justify-center items-center w-full	mt-5 h-96 mr-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <img
                     src={product.image}
                     alt={product.title}
