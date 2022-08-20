@@ -1,12 +1,12 @@
-import React from 'react'
-import Details from '../Components/DetailsProduct/Details'
+import React from "react";
+import Details from "../Components/DetailsProduct/Details";
 
 function DetailsPage() {
   return (
     <>
-    <Details/>
+      <Details />
     </>
-  )
+  );
 }
 
-export default DetailsPage
+export default DetailsPage;
