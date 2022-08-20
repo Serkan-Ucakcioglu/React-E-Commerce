@@ -1,13 +1,14 @@
 import React from "react";
+import {NavLink} from "react-router-dom"
 
 function Header() {
   return (
     <header>
-      <nav class="navbar navbar-expand-lg shadow-md py-2 bg-white relative flex items-center w-full justify-center">
-        <div class="px-6 w-full flex flex-wrap items-center justify-center">
-          <div class="flex items-center">
+      <nav className="navbar navbar-expand-lg shadow-md py-2 bg-slate-200	 relative flex items-center w-full justify-around">
+        <div className="px-6 w-full flex flex-wrap items-center justify-around">
+          <div className="flex items-center">
             <button
-              class="navbar-toggler border-0 py-3 lg:hidden leading-none text-xl bg-transparent text-gray-600 hover:text-gray-700 focus:text-gray-700 transition-shadow duration-150 ease-in-out mr-2"
+              className="navbar-toggler border-0 py-3 lg:hidden leading-none text-xl bg-transparent text-gray-900	hover:text-white focus:text-gray-700 transition-shadow duration-150 ease-in-out mr-2"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContentY"
@@ -19,7 +20,7 @@ function Header() {
                 aria-hidden="true"
                 focusable="false"
                 data-prefix="fas"
-                class="w-5"
+                className="w-5"
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
@@ -32,23 +33,23 @@ function Header() {
             </button>
           </div>
           <div
-            class="navbar-collapse collapse grow items-center"
+            className="navbar-collapse collapse grow items-center"
             id="navbarSupportedContentY"
           >
-            <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
-              <li class="nav-item">
-                <a
-                  class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out"
-                  href="#!"
+            <ul className="navbar-nav mr-auto justify-around items-center lg:flex lg:flex-row ">
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link text-lg	 block pr-2 lg:px-2 py-2 text-gray-900 hover:text-white focus:text-gray-700 transition duration-150 ease-in-out"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
+                  to={'/home'}
                 >
                   Home
-                </a>
+                </NavLink>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
-                  class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out"
+                  className="nav-link block pr-2 text-lg lg:px-2 py-2 text-gray-900 hover:text-white focus:text-gray-700 transition duration-150 ease-in-out"
                   href="#!"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
@@ -56,9 +57,9 @@ function Header() {
                   Features
                 </a>
               </li>
-              <li class="nav-item">
+              <li className="nav-item">
                 <a
-                  class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out"
+                  className="nav-link block pr-2 text-lg lg:px-2 py-2 text-gray-900 hover:text-white focus:text-gray-700 transition duration-150 ease-in-out"
                   href="#!"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
@@ -66,9 +67,9 @@ function Header() {
                   Pricing
                 </a>
               </li>
-              <li class="nav-item mb-2 lg:mb-0">
+              <li className="nav-item mb-2 lg:mb-0">
                 <a
-                  class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out"
+                  className="nav-link block pr-2 text-lg lg:px-2 py-2 text-gray-900	hover:text-white focus:text-gray-700 transition duration-150 ease-in-out"
                   href="#!"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
