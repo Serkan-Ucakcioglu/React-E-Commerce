@@ -62,7 +62,7 @@ export default function ProductList() {
           <option value="women's clothing">Women's clothing</option>
         </select>
       </div>
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 mb-5">
         {select === "choose" &&
           entities.map((product) => (
             <li key={product.id}>
