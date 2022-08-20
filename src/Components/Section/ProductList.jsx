@@ -29,6 +29,9 @@ export default function ProductList() {
                   <h5 className="mb-2 text-xl mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">
                     {product.title}
                   </h5>
+                  <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+                    <span>Detail</span>
+                  </button>
                 </div>
               </div>
             </NavLink>
