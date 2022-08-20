@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink} from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -42,7 +42,7 @@ function Header() {
                   className="nav-link text-lg	 block pr-2 lg:px-2 py-2 text-gray-900 hover:text-white focus:text-gray-700 transition duration-150 ease-in-out"
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
-                  to={'/home'}
+                  to={"/"}
                 >
                   Home
                 </NavLink>
