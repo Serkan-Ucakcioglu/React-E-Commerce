@@ -27,7 +27,7 @@ const productSlice = createSlice({
       state.entities = payload;
     },
     [getProduct.rejected]: (state) => {
-      state.loading = 'hata var ';
+      state.loading = "hata var ";
     },
   },
 });

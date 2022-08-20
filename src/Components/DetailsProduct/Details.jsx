@@ -32,13 +32,21 @@ function Details() {
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{detail.title}</div>
                 <p className="text-gray-900 font-bold text-base">
-                 {detail.description}
+                  {detail.description}
                 </p>
-                <p className="text-gray-700 text-base">
-                <strong className="text-lg font-bold text-black">  ${detail.price}</strong>
+                <p className="text-gray-700 text-base mt-4">
+                  <strong className="text-lg font-bold text-black ">
+                    {" "}
+                    ${detail.price}
+                  </strong>
                 </p>
               </div>
-              <button className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-2" type="button">add</button>
+              <button
+                className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mb-2"
+                type="button"
+              >
+                add
+              </button>
             </div>
           </li>
         </ul>
