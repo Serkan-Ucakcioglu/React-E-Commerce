@@ -56,10 +56,10 @@ export default function ProductList() {
           onChange={(e) => setSelect(e.target.value)}
         >
           <option value="choose">All</option>
-          <option value="electronics">electronics</option>
-          <option value="jewelery">jewelery</option>
-          <option value="men's clothing">men's clothing</option>
-          <option value="women's clothing">women's clothing</option>
+          <option value="electronics">Electronics</option>
+          <option value="jewelery">Jewelery</option>
+          <option value="men's clothing">Men's clothing</option>
+          <option value="women's clothing">Women's clothing</option>
         </select>
       </div>
       <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
