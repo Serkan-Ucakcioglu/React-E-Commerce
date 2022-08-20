@@ -32,7 +32,7 @@ function Details() {
               />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{detail.title}</div>
-                <p className="text-gray-900 font-bold text-base">
+                <p className="text-gray-500 font-bold text-base">
                   {detail.description}
                 </p>
                 <p className="text-gray-700 text-base mt-4">
