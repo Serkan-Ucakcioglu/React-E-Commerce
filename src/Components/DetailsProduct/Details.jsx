@@ -28,6 +28,7 @@ function Details() {
                 className="object-cover w-full h-96 mr-2 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
                 src={detail.image}
                 alt={detail.title}
+                loading="lazy"
               />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{detail.title}</div>
