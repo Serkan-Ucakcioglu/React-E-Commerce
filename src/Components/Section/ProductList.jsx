@@ -62,7 +62,7 @@ export default function ProductList() {
           <option value="women's clothing">women's clothing</option>
         </select>
       </div>
-      <ul className="grid grid-flow-row-dense grid-cols-4 grid-rows-6 ">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
         {select === "choose" &&
           entities.map((product) => (
             <li key={product.id}>
@@ -90,11 +90,11 @@ export default function ProductList() {
           data.map((product) => (
             <li key={product.id}>
               <NavLink to={`detail/${product.id}`}>
-                <div className="p-10 flex flex-col justify-center items-center max-w-full mt-5 h-96 mr-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div className="p-10 flex flex-col justify-center items-center w-80	mt-5 m-h-96 mr-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="cursor-pointer h-4/6 w-4/6 object-contain"
+                    className="cursor-pointer h-4/6 w-full object-contain "
                     loading="lazy"
                   />
                   <div>
