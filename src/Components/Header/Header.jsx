@@ -1,8 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import Basket from "./Basket";
 
 function Header() {
+  const basket = useSelector(state => state.basket);
+
   return (
+    <>
     <div className="relative bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
@@ -73,7 +78,7 @@ function Header() {
               Docs{" "}
             </a>
           </nav>
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <div className="hidden md:flex items-center ml-4 md:flex-1 lg:w-0">
             <NavLink
               to={"/register"}
               className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
@@ -88,6 +93,9 @@ function Header() {
               {" "}
               Login{" "}
             </NavLink>
+          </div>
+          <div className="basket">
+            <Basket />
           </div>
         </div>
       </div>
@@ -175,7 +183,8 @@ function Header() {
           </div>
         </div>
       </div>
-    </div>
+    </div></>
+    
   );
 }
 

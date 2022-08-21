@@ -20,7 +20,7 @@ function Login() {
           <form>
             <div className="mt-4">
               <div>
-                <label className="block" for="email">
+                <label className="block">
                   Email
                 </label>
                 <input
@@ -29,7 +29,7 @@ function Login() {
                   className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 />
                 <span className="text-xs tracking-wide text-red-600">
-                  Email field is required{" "}
+                  Email field is required
                 </span>
               </div>
               <div className="mt-4">

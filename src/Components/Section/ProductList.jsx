@@ -45,7 +45,7 @@ export default function ProductList() {
       <div className="flex flex-col items-center">
         <label
           for="category"
-          className="block mt-2 text-sm font-medium text-gray-900 dark:text-gray-400"
+          className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400"
         >
           Select an Category
         </label>
@@ -75,7 +75,7 @@ export default function ProductList() {
                     loading="lazy"
                   />
                   <div>
-                    <h5 className="mb-2 text-lg mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <h5 className="mb-2 text-sm mt-2 font-semibold tracking-tight text-gray-900 dark:text-white">
                       {product.title}
                     </h5>
                     <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">

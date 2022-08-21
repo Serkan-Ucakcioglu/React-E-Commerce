@@ -4,6 +4,7 @@ const initialState = {
   basket: [],
   entities: [],
   loading: false,
+  count: 0 ,
 };
 export const getProduct = createAsyncThunk(
   "users/fetchByIdStatus",
@@ -17,18 +18,36 @@ export const getProduct = createAsyncThunk(
 const productSlice = createSlice({
   name: "productSlice",
   initialState,
-  reducers: {},
+  reducers: {
+    addBasket: (state, action) =>  {
+      let isProductInBasket = state.basket.find(
+        (product) => product.id === action.payload.id
+      );
+
+      if (!isProductInBasket) {
+        state.basket.push({
+          ...action.payload,
+          quantity: 1,
+        })
+        state.count++
+      } else {
+        isProductInBasket.quantity++;
+      }
+    },
+  },
   extraReducers: {
     [getProduct.pending]: (state) => {
       state.loading = true;
     },
-    [getProduct.fulfilled]: (state, { payload }) => {
+    [getProduct.fulfilled]: (state, action) => {
       state.loading = false;
-      state.entities = payload;
+      state.entities = action.payload;
     },
     [getProduct.rejected]: (state) => {
       state.loading = "hata var ";
     },
   },
 });
+
+export const {addBasket} = productSlice.actions 
 export default productSlice.reducer;
