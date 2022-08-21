@@ -15,15 +15,15 @@ function Details() {
       .then((res) => res.json())
       .then((data) => setDetail(data));
   };
-
-  useEffect(() => {
-    fetchDetail()
-    console.log('useEffect detail sayfasında çalıştı');
-  }, []);
-
+  
   const addProduct = () => {
     dispatch(addBasket(detail));
   };
+  useEffect(() => {
+    fetchDetail();
+    console.log("useEffect detail sayfasında çalıştı");
+  }, []);
+
 
   return (
     <>
