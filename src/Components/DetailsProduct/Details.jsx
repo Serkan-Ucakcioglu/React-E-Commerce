@@ -25,8 +25,6 @@ function Details() {
     fetchDetail();
   }, []);
 
-
-  
   return (
     <>
       <Header />
