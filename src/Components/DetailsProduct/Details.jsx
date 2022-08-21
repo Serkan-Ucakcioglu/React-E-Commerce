@@ -10,7 +10,7 @@ function Details() {
   const { id } = useParams();
   let [detail, setDetail] = useState([]);
   const dispatch = useDispatch();
-  const basket = useSelector(state => state.productSlice.basket);
+  const basket = useSelector((state) => state.productSlice.basket);
 
   const fetchDetail = () => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -20,12 +20,10 @@ function Details() {
   useEffect(() => {
     fetchDetail();
   }, []);
-console.log(basket,'basket');
+
 
   const addProduct = () => {
     dispatch(addBasket(detail));
-    console.log("hey", basket);
-    console.log(detail)
   };
   return (
     <>
