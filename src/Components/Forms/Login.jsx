@@ -47,6 +47,7 @@ function Login() {
                 <NavLink
                   to={"/register"}
                   className="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                  activeClassName="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"                
                 >
                   Register
                 </NavLink>

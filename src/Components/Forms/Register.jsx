@@ -25,7 +25,7 @@ function Register() {
               <form className="space-y-4 md:space-y-6" action="#">
                 <div>
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left"
                   >
                     Your email
@@ -41,7 +41,7 @@ function Register() {
                 </div>
                 <div>
                   <label
-                    for="password"
+                    htmlFor="password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left"
                   >
                     Password
@@ -57,7 +57,7 @@ function Register() {
                 </div>
                 <div>
                   <label
-                    for="confirm-password"
+                    htmlFor="confirm-password"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left"
                   >
                     Confirm password
@@ -83,7 +83,7 @@ function Register() {
                   </div>
                   <div className="ml-3 text-sm">
                     <label
-                      for="terms"
+                      htmlFor="terms"
                       className="font-light text-gray-500 dark:text-gray-300 text-left"
                     >
                       I accept the{" "}
@@ -107,6 +107,7 @@ function Register() {
                   <NavLink
                     to={"/login"}
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    activeClassName="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
                   >
                     Login here
                   </NavLink>
