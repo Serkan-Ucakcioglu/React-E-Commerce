@@ -7,7 +7,6 @@ export default function ProductList() {
   const dispatch = useDispatch();
   const { entities, loading } = useSelector((state) => state.productSlice);
   const [select, setSelect] = useState("choose");
-
   const data = entities.filter((product) => product.category === select);
 
   const getData = () => dispatch(getProduct());
