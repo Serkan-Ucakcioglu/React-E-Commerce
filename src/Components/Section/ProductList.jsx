@@ -25,7 +25,7 @@ export default function ProductList() {
           focusable="false"
           data-prefix="fas"
           data-icon="exclamation-triangle"
-          class="w-4 h-4 mr-2 fill-current"
+          className="w-4 h-4 mr-2 fill-current"
           role="img"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 576 512"
@@ -44,7 +44,7 @@ export default function ProductList() {
     <div className="container">
       <div className="flex flex-col items-center">
         <label
-          for="category"
+          htmlFor="category"
           className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400"
         >
           Select an Category
