@@ -15,7 +15,7 @@ function Details() {
       .then((res) => res.json())
       .then((data) => setDetail(data));
   };
-  
+
   const addProduct = () => {
     dispatch(addBasket(detail));
   };
@@ -23,7 +23,6 @@ function Details() {
     fetchDetail();
     console.log("useEffect detail sayfasında çalıştı");
   }, []);
-
 
   return (
     <>
