@@ -38,6 +38,7 @@ const productSlice = createSlice({
       state.basket = state.basket.filter(
         (product) => product.id !== action.payload.id
       );
+      state.count--
       return state;
     },
   },
