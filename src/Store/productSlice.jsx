@@ -4,7 +4,7 @@ const initialState = {
   basket: [],
   entities: [],
   loading: false,
-  count: 0 ,
+  count: 0,
 };
 export const getProduct = createAsyncThunk(
   "users/fetchByIdStatus",
@@ -19,7 +19,7 @@ const productSlice = createSlice({
   name: "productSlice",
   initialState,
   reducers: {
-    addBasket: (state, action) =>  {
+    addBasket: (state, action) => {
       let isProductInBasket = state.basket.find(
         (product) => product.id === action.payload.id
       );
@@ -28,8 +28,8 @@ const productSlice = createSlice({
         state.basket.push({
           ...action.payload,
           quantity: 1,
-        })
-        state.count++
+        });
+        state.count++;
       } else {
         isProductInBasket.quantity++;
       }
@@ -49,5 +49,5 @@ const productSlice = createSlice({
   },
 });
 
-export const {addBasket} = productSlice.actions 
+export const { addBasket } = productSlice.actions;
 export default productSlice.reducer;
