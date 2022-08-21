@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addBasket } from "../../Store/productSlice";
 import Header from "../Header/Header";
 
@@ -9,7 +9,6 @@ function Details() {
   const { id } = useParams();
   let [detail, setDetail] = useState([]);
   const dispatch = useDispatch();
-  const basket = useSelector((state) => state.productSlice.basket);
 
   const fetchDetail = () => {
     fetch(`https://fakestoreapi.com/products/${id}`)
