@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 
@@ -61,18 +60,12 @@ function Header() {
                 </NavLink>
               </div>
 
-              <a
-                href="#"
-                className="text-base font-medium text-gray-500 hover:text-gray-900"
-              >
+              <div className="text-base font-medium text-gray-500 hover:text-gray-900">
                 Pricing{" "}
-              </a>
-              <a
-                href="#"
-                className="text-base font-medium text-gray-500 hover:text-gray-900"
-              >
+              </div>
+              <div className="text-base font-medium text-gray-500 hover:text-gray-900">
                 Docs{" "}
-              </a>
+              </div>
             </nav>
             <div className="hidden md:flex items-center ml-4 md:flex-1 lg:w-0">
               <NavLink
@@ -142,32 +135,29 @@ function Header() {
                 >
                   Home
                 </NavLink>
-                <a
-                  href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
-                >
+                <div className="text-base font-medium text-gray-900 hover:text-gray-700">
                   Pricing
-                </a>
+                </div>
 
-                <a
-                  href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
-                >
+                <div className="text-base font-medium text-gray-900 hover:text-gray-700">
                   Docs{" "}
-                </a>
+                </div>
               </div>
               <div>
-                <a
-                  href="#"
+                <NavLink
+                  to={"/login"}
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                 >
-                  Sign up{" "}
-                </a>
+                  Giriş Yap
+                </NavLink>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                    Sign in{" "}
-                  </a>
+                  <NavLink
+                    to={"/register"}
+                    className="text-indigo-600 hover:text-indigo-500"
+                  >
+                    Register
+                  </NavLink>
                 </p>
               </div>
             </div>
