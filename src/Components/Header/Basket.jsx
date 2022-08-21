@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { NavLink  } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Basket() {
   let [shop, setShop] = useState(false);
@@ -107,7 +107,7 @@ function Basket() {
                                     </div>
                                     <div className="flex flex-1 items-end justify-between text-sm">
                                       <p className="text-black-500">
-                                      <strong>{product.quantity}</strong>
+                                        <strong>{product.quantity}</strong>
                                       </p>
 
                                       <div className="flex">
