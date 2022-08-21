@@ -10,10 +10,10 @@ export default function ProductList() {
 
   const data = entities.filter((product) => product.category === select);
 
-  const getData =  () =>  dispatch(getProduct());
+  const getData = () => dispatch(getProduct());
 
   useEffect(() => {
-    getData()
+    getData();
   }, []);
 
   if (loading) {
