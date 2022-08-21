@@ -80,7 +80,6 @@ function Basket() {
                           </button>
                         </div>
                       </div>
-                      {basket.length < 0 && <span>Sepetiniz boş..</span>}
                       {basket.map((product) => {
                         return (
                           <div className="mt-8">
