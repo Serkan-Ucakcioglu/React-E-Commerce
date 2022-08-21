@@ -16,13 +16,13 @@ function Details() {
       .then((data) => setDetail(data));
   };
 
-  const addProduct = () => {
-    dispatch(addBasket(detail));
-  };
-
   useEffect(() => {
     fetchDetail()
   }, []);
+
+  const addProduct = () => {
+    dispatch(addBasket(detail));
+  };
 
   return (
     <>
