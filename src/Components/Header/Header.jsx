@@ -37,7 +37,7 @@ function Header() {
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="2"
+                  strokeWidth="2"
                   stroke="currentColor"
                   aria-hidden="true"
                 >
@@ -65,14 +65,12 @@ function Header() {
                 href="#"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
-                {" "}
                 Pricing{" "}
               </a>
               <a
                 href="#"
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
               >
-                {" "}
                 Docs{" "}
               </a>
             </nav>
@@ -81,14 +79,12 @@ function Header() {
                 to={"/register"}
                 className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
               >
-                {" "}
                 Register{" "}
               </NavLink>
               <NavLink
                 to={"/login"}
                 className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
               >
-                {" "}
                 Login{" "}
               </NavLink>
             </div>
@@ -121,7 +117,7 @@ function Header() {
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="2"
+                      strokeWidth="2"
                       stroke="currentColor"
                       aria-hidden="true"
                     >
@@ -150,15 +146,13 @@ function Header() {
                   href="#"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  {" "}
-                  Pricing{" "}
+                  Pricing
                 </a>
 
                 <a
                   href="#"
                   className="text-base font-medium text-gray-900 hover:text-gray-700"
                 >
-                  {" "}
                   Docs{" "}
                 </a>
               </div>
@@ -167,13 +161,11 @@ function Header() {
                   href="#"
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                 >
-                  {" "}
                   Sign up{" "}
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?
                   <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                    {" "}
                     Sign in{" "}
                   </a>
                 </p>

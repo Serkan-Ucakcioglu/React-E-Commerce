@@ -34,9 +34,12 @@ const productSlice = createSlice({
         isProductInBasket.quantity++;
       }
     },
-    remove: (state,action) => {
-       return state.basket.filter(product => product.id !== action.payload.id)
-    } 
+    remove: (state, action) => {
+      state.basket = state.basket.filter(
+        (product) => product.id !== action.payload.id
+      );
+      return state;
+    },
   },
   extraReducers: {
     [getProduct.pending]: (state) => {
@@ -52,5 +55,5 @@ const productSlice = createSlice({
   },
 });
 
-export const { addBasket,remove } = productSlice.actions;
+export const { addBasket, remove } = productSlice.actions;
 export default productSlice.reducer;

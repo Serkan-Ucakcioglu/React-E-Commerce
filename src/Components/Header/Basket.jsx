@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../../Store/productSlice";
+import { NavLink } from "react-router-dom";
 
 function Basket() {
   let [shop, setShop] = useState(false);
   let basket = useSelector((state) => state.productSlice.basket);
   let count = useSelector((state) => state.productSlice.count);
-  const dispatch = useDispatch()
-  const removeBasket = (id) => {
-    dispatch(remove(id))
-  }
+  const dispatch = useDispatch();
+
+  const removeBasket = (product) => {
+    dispatch(remove(product));
+  };
 
   return (
     <div className="container">
@@ -64,7 +66,7 @@ function Basket() {
                               xmlns="http://www.w3.org/2000/svg"
                               fill="none"
                               viewBox="0 0 24 24"
-                              stroke-width="2"
+                              strokeWidth="2"
                               stroke="currentColor"
                               aria-hidden="true"
                               onClick={() => setShop(!shop)}
@@ -78,6 +80,7 @@ function Basket() {
                           </button>
                         </div>
                       </div>
+                      {basket.length < 0 && <span>Sepetiniz boş..</span>}
                       {basket.map((product) => {
                         return (
                           <div className="mt-8">
@@ -116,7 +119,7 @@ function Basket() {
 
                                       <div className="flex">
                                         <button
-                                        onClick={() => removeBasket(product.id)}
+                                          onClick={() => removeBasket(product)}
                                           type="button"
                                           className="font-medium text-indigo-600 hover:text-indigo-500"
                                         >
@@ -152,13 +155,13 @@ function Basket() {
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
                           or{" "}
-                          <button
-                            type="button"
+                          <NavLink
+                            to={"/"}
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >
                             Continue Shopping
                             <span aria-hidden="true"> &rarr;</span>
-                          </button>
+                          </NavLink>
                         </p>
                       </div>
                     </div>
