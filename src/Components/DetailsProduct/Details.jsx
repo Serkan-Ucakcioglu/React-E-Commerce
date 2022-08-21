@@ -21,7 +21,7 @@ function Details() {
   };
 
   useEffect(() => {
-    fetchDetail();
+    fetchDetail()
   }, []);
 
   return (

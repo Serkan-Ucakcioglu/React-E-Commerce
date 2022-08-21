@@ -85,12 +85,10 @@ function Basket() {
                           <div className="mt-8">
                             <div className="flow-root">
                               <ul
-                                role="list"
                                 className="-my-6 divide-y divide-gray-200"
                               >
                                 <li className="flex py-6">
-                                  <a
-                                    href="#"
+                                  <div           
                                     className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200"
                                   >
                                     <img
@@ -98,13 +96,13 @@ function Basket() {
                                       alt={product.title}
                                       className="h-full w-full object-cover object-scale-down"
                                     />
-                                  </a>
+                                  </div>
 
                                   <div className="ml-4 flex flex-1 flex-col">
                                     <div>
                                       <div className="flex justify-between text-base font-medium text-gray-900">
                                         <h3>
-                                          <a href="#"> {product.title} </a>
+                                          <div> {product.title} </div>
                                         </h3>
                                         <p className="ml-4">
                                           <strong>${product.price}</strong>
