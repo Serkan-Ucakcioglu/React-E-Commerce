@@ -54,7 +54,7 @@ function Details() {
                 type="button"
                 onClick={() => addProduct()}
               >
-                add
+                Buy
               </button>
             </div>
           </li>

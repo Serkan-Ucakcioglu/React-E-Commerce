@@ -35,7 +35,6 @@ function Basket() {
 
       {count > 0 && (
         <div>
-          {" "}
           {shop && (
             <div
               className="relative z-10"
@@ -104,7 +103,11 @@ function Basket() {
                                               <div> {product.title} </div>
                                             </h3>
                                             <p className="ml-4">
-                                              <strong>${product.price}</strong>
+                                              <strong>
+                                                $
+                                                {product.price *
+                                                  product.quantity}
+                                              </strong>
                                             </p>
                                           </div>
                                         </div>
@@ -136,8 +139,15 @@ function Basket() {
 
                         <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                           <div className="flex justify-between text-base font-medium text-gray-900">
-                            <p>Subtotal</p>
-                            <p>$262.00</p>
+                            <p>Total Price:</p>
+                            <strong>
+                              $
+                              {basket.reduce(
+                                (total, item) =>
+                                  total + item.price * item.quantity,
+                                0
+                              )}
+                            </strong>
                           </div>
                           <p className="mt-0.5 text-sm text-gray-500">
                             Shipping and taxes calculated at checkout.
