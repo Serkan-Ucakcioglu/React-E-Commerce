@@ -1,10 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { data } from "autoprefixer";
-import Header from "../Header/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { addBasket } from "../../Store/productSlice";
+import Header from "../Header/Header";
 
 function Details() {
   const { id } = useParams();
@@ -17,14 +16,17 @@ function Details() {
       .then((res) => res.json())
       .then((data) => setDetail(data));
   };
+
+  const addProduct = () => {
+    dispatch(addBasket(detail));
+  };
+
   useEffect(() => {
     fetchDetail();
   }, []);
 
 
-  const addProduct = () => {
-    dispatch(addBasket(detail));
-  };
+  
   return (
     <>
       <Header />

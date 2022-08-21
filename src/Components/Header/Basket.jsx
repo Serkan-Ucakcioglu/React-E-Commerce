@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { remove } from "../../Store/productSlice";
 
 function Basket() {
   let [shop, setShop] = useState(false);
   let basket = useSelector((state) => state.productSlice.basket);
   let count = useSelector((state) => state.productSlice.count);
-  console.log(shop);
+  const dispatch = useDispatch()
+  const removeBasket = (id) => {
+    dispatch(remove(id))
+  }
+
   return (
     <div className="container">
       <div
@@ -112,6 +116,7 @@ function Basket() {
 
                                       <div className="flex">
                                         <button
+                                        onClick={() => removeBasket(product.id)}
                                           type="button"
                                           className="font-medium text-indigo-600 hover:text-indigo-500"
                                         >
