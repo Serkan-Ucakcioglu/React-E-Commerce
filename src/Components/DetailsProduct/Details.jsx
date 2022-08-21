@@ -18,6 +18,7 @@ function Details() {
 
   useEffect(() => {
     fetchDetail()
+    console.log('useEffect detail sayfasında çalıştı');
   }, []);
 
   const addProduct = () => {
