@@ -152,7 +152,10 @@ function Basket() {
                             Shipping and taxes calculated at checkout.
                           </p>
                           <div className="mt-6">
-                            <NavLink to={'/checkout'} className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">
+                            <NavLink
+                              to={"/checkout"}
+                              className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                            >
                               Checkout
                             </NavLink>
                           </div>
@@ -161,6 +164,7 @@ function Basket() {
                               or
                               <NavLink
                                 to={"/"}
+                                onClick={() => setShop(!shop)}
                                 className="font-medium text-indigo-600 hover:text-indigo-500"
                               >
                                 Continue Shopping
