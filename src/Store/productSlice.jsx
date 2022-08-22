@@ -41,6 +41,15 @@ const productSlice = createSlice({
       state.count--;
       return state;
     },
+    updateQuantity: (state,action) => {
+      state.basket = state.basket((t) => {
+        if (t.id === action.payload.id) {
+          return { ...t, quantity: action.payload.quantity };
+        } else {
+          return t;
+        }
+      });
+    }
   },
   extraReducers: {
     [getProduct.pending]: (state) => {
@@ -56,5 +65,5 @@ const productSlice = createSlice({
   },
 });
 
-export const { addBasket, remove } = productSlice.actions;
+export const { addBasket, remove,updateQuantity } = productSlice.actions;
 export default productSlice.reducer;

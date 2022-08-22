@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { remove } from "../../Store/productSlice";
+import { remove , updateQuantity} from "../../Store/productSlice";
 
 function CheckOut() {
   const [shop, setShop] = useState(false);
@@ -14,6 +14,10 @@ function CheckOut() {
   const removeBasket = (product) => {
     dispatch(remove(product));
   };
+const update= (product) => {
+  dispatch(updateQuantity(product))
+}
+
   return (
     <div className="container mx-auto mt-10">
       {count == 0 && (
@@ -26,19 +30,19 @@ function CheckOut() {
           <div className="w-3/4 bg-white px-10 py-10">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-              <h2 className="font-semibold text-2xl">{basket.length} Items</h2>
+              <h2 className="font-semibold text-2xl">{basket.length} {basket.length < 2 ? 'Item' : 'Items'}</h2>
             </div>
             <div className="flex mt-10 mb-5">
-              <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
+              <h3 className="font-semibold text-black	text-xs uppercase w-2/5">
                 Product Details
               </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+              <h3 className="font-semibold text-center text-black	text-xs uppercase w-1/5 text-center">
                 Quantity
               </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+              <h3 className="font-semibold text-center text-black	text-xs uppercase w-1/5 text-center">
                 Price
               </h3>
-              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+              <h3 className="font-semibold text-center text-black	text-xs uppercase w-1/5 text-center">
                 Total
               </h3>
             </div>
@@ -82,21 +86,23 @@ function CheckOut() {
                     <input
                       className="mx-2 border text-center w-8"
                       type="text"
-                      value="1"
+                      value={product.quantity}
+                      onChange={() => update(product.quantity++)}
                     />
 
                     <svg
-                      className="fill-current text-gray-600 w-3"
+                      className="fill-current text-gray-600 w-3 cursor-pointer"
                       viewBox="0 0 448 512"
+                      onClick={() => product.quantity++}
                     >
                       <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                     </svg>
                   </div>
                   <span className="text-center w-1/5 font-semibold text-sm">
-                    {product.quantity}
+                    ${product.price}
                   </span>
                   <span className="text-center w-1/5 font-semibold text-sm">
-                    {product.quantity * product.price}
+                    ${product.quantity * product.price}
                   </span>
                 </div>
               );
@@ -116,12 +122,12 @@ function CheckOut() {
             </NavLink>
           </div>
 
-          <div id="summary" className="w-1/4 px-8 py-10">
-            <h1 className="font-semibold text-2xl border-b pb-8">
+          <div id="summary" className="w-1/4 px-8 py-10 justify-between">
+            <h1 className="font-semibold text-2xl border-b pb-8 justify-between">
               Order Summary
             </h1>
 
-            <div className="mt-2">
+            <div className="mt-3">
               <label className="font-medium inline-block mb-3 text-sm uppercase">
                 Shipping
               </label>
@@ -140,7 +146,7 @@ function CheckOut() {
                 type="text"
                 id="promo"
                 placeholder="Enter your code"
-                className="p-2 text-sm w-full"
+                className="p-2 text-sm w-full border-2 border-black rounded"
               />
             </div>
             <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase rounded">
@@ -150,6 +156,7 @@ function CheckOut() {
               <div className="flex font-semibold justify-between py-6 text-sm uppercase">
                 <span>Total cost</span>
                 <span>
+                  $
                   {basket.reduce(
                     (total, item) => total + item.price * item.quantity,
                     0
