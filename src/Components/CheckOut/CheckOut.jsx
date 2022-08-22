@@ -2,21 +2,25 @@ import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { remove , updateQuantity} from "../../Store/productSlice";
+import { remove, updateQuantity } from "../../Store/productSlice";
+import { addBasket } from "../../Store/productSlice";
 
 function CheckOut() {
   const [shop, setShop] = useState(false);
   let basket = useSelector((state) => state.productSlice.basket);
   let count = useSelector((state) => state.productSlice.count);
-
   const dispatch = useDispatch();
 
   const removeBasket = (product) => {
     dispatch(remove(product));
   };
-const update= (product) => {
-  dispatch(updateQuantity(product))
-}
+  const quantity = (product) => {
+    dispatch(addBasket(product));
+  };
+
+  const decrement = (product) => {
+    dispatch(updateQuantity(product));
+  };
 
   return (
     <div className="container mx-auto mt-10">
@@ -30,7 +34,9 @@ const update= (product) => {
           <div className="w-3/4 bg-white px-10 py-10">
             <div className="flex justify-between border-b pb-8">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
-              <h2 className="font-semibold text-2xl">{basket.length} {basket.length < 2 ? 'Item' : 'Items'}</h2>
+              <h2 className="font-semibold text-2xl">
+                {basket.length} {basket.length < 2 ? "Item" : "Items"}
+              </h2>
             </div>
             <div className="flex mt-10 mb-5">
               <h3 className="font-semibold text-black	text-xs uppercase w-2/5">
@@ -77,8 +83,9 @@ const update= (product) => {
                   </div>
                   <div className="flex justify-center w-1/5">
                     <svg
-                      className="fill-current text-gray-600 w-3"
+                      className="fill-current text-gray-600 w-3 cursor-pointer"
                       viewBox="0 0 448 512"
+                      onClick={() => decrement(product)}
                     >
                       <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                     </svg>
@@ -87,13 +94,12 @@ const update= (product) => {
                       className="mx-2 border text-center w-8"
                       type="text"
                       value={product.quantity}
-                      onChange={() => update(product.quantity++)}
                     />
 
                     <svg
                       className="fill-current text-gray-600 w-3 cursor-pointer"
                       viewBox="0 0 448 512"
-                      onClick={() => product.quantity++}
+                      onClick={() => quantity(product)}
                     >
                       <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                     </svg>

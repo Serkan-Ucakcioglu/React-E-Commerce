@@ -41,15 +41,17 @@ const productSlice = createSlice({
       state.count--;
       return state;
     },
-    updateQuantity: (state,action) => {
-      state.basket = state.basket((t) => {
-        if (t.id === action.payload.id) {
-          return { ...t, quantity: action.payload.quantity };
-        } else {
-          return t;
-        }
-      });
-    }
+    updateQuantity: (state, action) => {
+      let isProductInBasket = state.basket.find(
+        (product) => product.id === action.payload.id
+      );
+
+      if (!isProductInBasket) {
+        state.count++;
+      } else {
+        isProductInBasket.quantity > 1 && isProductInBasket.quantity--;
+      }
+    },
   },
   extraReducers: {
     [getProduct.pending]: (state) => {
@@ -65,5 +67,5 @@ const productSlice = createSlice({
   },
 });
 
-export const { addBasket, remove,updateQuantity } = productSlice.actions;
+export const { addBasket, remove, updateQuantity } = productSlice.actions;
 export default productSlice.reducer;
