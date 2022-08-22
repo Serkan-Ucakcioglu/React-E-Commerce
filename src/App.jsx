@@ -7,7 +7,6 @@ import Login from "./Components/Forms/Login";
 import Register from "./Components/Forms/Register";
 import CheckOutPage from "./Pages/CheckOutPage";
 
-
 function App() {
   return (
     <div className="App">
