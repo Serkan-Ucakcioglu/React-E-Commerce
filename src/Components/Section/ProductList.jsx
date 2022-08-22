@@ -13,6 +13,7 @@ export default function ProductList() {
 
   useEffect(() => {
     getData();
+        // eslint-disable-next-line
   }, []);
 
   if (loading) {
