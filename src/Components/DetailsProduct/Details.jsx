@@ -10,18 +10,15 @@ function Details() {
   let [detail, setDetail] = useState([]);
   const dispatch = useDispatch();
 
-  const fetchDetail = () => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => setDetail(data));
-  };
-
+ 
   const addProduct = () => {
     dispatch(addBasket(detail));
   };
   useEffect(() => {
-    fetchDetail();
-    console.log("useEffect detail sayfasında çalıştı");
+    fetch(`https://fakestoreapi.com/products/${id}`)
+      .then((res) => res.json())
+      .then((data) => setDetail(data));
+  
   }, []);
 
   return (
