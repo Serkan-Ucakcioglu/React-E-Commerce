@@ -49,16 +49,15 @@ function CheckOut() {
                   className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
                   key={product.id}
                 >
-                  <NavLink
-                    className="flex w-2/5 mt-2"
-                    to={`/detail/${product.id}`}
-                  >
+                  <div className="flex w-2/5 mt-2">
                     <div className="w-20">
-                      <img
-                        className="h-24 object-scale-down"
-                        src={product.image}
-                        alt={product.title}
-                      />
+                      <NavLink to={`/detail/${product.id}`}>
+                        <img
+                          className="h-24 object-scale-down"
+                          src={product.image}
+                          alt={product.title}
+                        />
+                      </NavLink>
                     </div>
                     <div className="flex flex-col justify-center ml-4 mt-2 flex-grow">
                       <span className="text-sm">
@@ -71,7 +70,7 @@ function CheckOut() {
                         Remove
                       </button>
                     </div>
-                  </NavLink>
+                  </div>
                   <div className="flex justify-center w-1/5">
                     <svg
                       className="fill-current text-gray-600 w-3"
