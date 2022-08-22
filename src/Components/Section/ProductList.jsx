@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../../Store/productSlice";
 import { NavLink } from "react-router-dom";
 
-
 export default function ProductList() {
   const dispatch = useDispatch();
   const { entities, loading } = useSelector((state) => state.productSlice);
@@ -45,10 +44,10 @@ export default function ProductList() {
 
   return (
     <div className="container">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col mt-8 items-center">
         <label
           htmlFor="category"
-          className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400"
+          className="block mb-1 text-sm font-medium text-gray-900 dark:text-gray-400 d-none"
         >
           Select an Category
         </label>
@@ -70,7 +69,7 @@ export default function ProductList() {
           entities.map((product) => (
             <li key={product.id}>
               <NavLink to={`detail/${product.id}`}>
-                <div className="p-16 flex flex-col justify-center items-center max-w-full mt-5 h-96 mr-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <div className="p-14 flex flex-col justify-center items-center max-w-full mt-5 h-96 mr-2 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                   <img
                     src={product.image}
                     alt={product.title}

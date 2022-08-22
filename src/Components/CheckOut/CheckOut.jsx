@@ -23,32 +23,18 @@ function CheckOut() {
   return (
     <div className="container mx-auto mt-10">
       {count === 0 && (
-        <h1 className="text-red text-xl flex justify-center items-center">
+        <h1 className="text-red text-xl flex mt-8 justify-center items-center">
           Sepetiniz Boş.
         </h1>
       )}
       {count > 0 && (
-        <div className="flex shadow-md my-10">
-          <div className="w-3/4 bg-white px-10 py-10">
-            <div className="flex justify-between border-b pb-8">
+        <div className="flex shadow-md my-10 res">
+          <div className="w-3/4 bg-white px-10 py-10 wll">
+            <div className="flex justify-between border-b pb-8 wll">
               <h1 className="font-semibold text-2xl">Shopping Cart</h1>
               <h2 className="font-semibold text-2xl">
                 {basket.length} {basket.length < 2 ? "Item" : "Items"}
               </h2>
-            </div>
-            <div className="flex mt-10 mb-5">
-              <h3 className="font-semibold text-black	text-xs uppercase w-2/5">
-                Product Details
-              </h3>
-              <h3 className="font-semibold text-center text-black	text-xs uppercase w-1/5 text-center">
-                Quantity
-              </h3>
-              <h3 className="font-semibold text-center text-black	text-xs uppercase w-1/5 text-center">
-                Price
-              </h3>
-              <h3 className="font-semibold text-center text-black	text-xs uppercase w-1/5 text-center">
-                Total
-              </h3>
             </div>
 
             {basket.map((product) => {
@@ -57,7 +43,7 @@ function CheckOut() {
                   className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
                   key={product.id}
                 >
-                  <div className="flex w-2/5 mt-2">
+                  <div className="flex w-2/5 mt-2 spce">
                     <div className="w-20">
                       <NavLink to={`/detail/${product.id}`}>
                         <img
@@ -79,7 +65,7 @@ function CheckOut() {
                       </button>
                     </div>
                   </div>
-                  <div className="flex justify-center w-1/5">
+                  <div className="flex justify-center w-1/5 wll mr-2">
                     <svg
                       className="fill-current text-gray-600 w-3 cursor-pointer"
                       viewBox="0 0 448 512"
@@ -105,7 +91,7 @@ function CheckOut() {
                   <span className="text-center w-1/5 font-semibold text-sm">
                     ${product.price}
                   </span>
-                  <span className="text-center w-1/5 font-semibold text-sm">
+                  <span className="text-center w-1/5 font-semibold text-sm mls-2">
                     ${product.quantity * product.price}
                   </span>
                 </div>
@@ -126,7 +112,7 @@ function CheckOut() {
             </NavLink>
           </div>
 
-          <div id="summary" className="w-1/4 px-8 py-10 justify-between">
+          <div id="summary" className="w-1/4 wll px-8 py-10 justify-between">
             <h1 className="font-semibold text-2xl border-b pb-8 justify-between">
               Order Summary
             </h1>

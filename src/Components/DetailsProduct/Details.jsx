@@ -33,7 +33,7 @@ function Details() {
           <li>
             <div className="max-w-sm flex flex-col items-center rounded overflow-hidden shadow-lg">
               <img
-                className="object-cover w-full h-96 mr-2 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+                className="object-scale-down w-full h-96 mr-2 rounded-t-lg md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
                 src={detail.image}
                 alt={detail.title}
                 loading="lazy"

@@ -4,10 +4,38 @@
 
 .container{
     max-width: 1200px;
-    width: 90%;
+    width: 95%;
     margin: 0px auto;
 }
 
 .mi{
     margin-right: 295px;
 }
+
+
+@media screen and (max-width: 768px) {
+    .res{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%
+    }
+    .wll{
+        width: 100% !important;
+    }
+    .spce{
+        width: 100% !important;
+        display: flex;
+        justify-content: space-between !important;
+    }
+    .mls-2{
+        margin-left: 20px;
+    }
+    .d-none{
+        display: none;
+    }
+    .b-none{
+        box-shadow: none;
+    }
+  }
