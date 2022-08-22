@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit/";
 
-const initialState = {
+const initialState = JSON.parse(localStorage.getItem("basket")) || {
   basket: [],
   entities: [],
   loading: false,
@@ -33,12 +33,14 @@ const productSlice = createSlice({
       } else {
         isProductInBasket.quantity++;
       }
+      localStorage.setItem("basket", JSON.stringify(state));
     },
     remove: (state, action) => {
       state.basket = state.basket.filter(
         (product) => product.id !== action.payload.id
       );
       state.count--;
+      localStorage.setItem("basket", JSON.stringify(state));
       return state;
     },
     updateQuantity: (state, action) => {
@@ -51,6 +53,7 @@ const productSlice = createSlice({
       } else {
         isProductInBasket.quantity > 1 && isProductInBasket.quantity--;
       }
+      localStorage.setItem("basket", JSON.stringify(state));
     },
   },
   extraReducers: {
