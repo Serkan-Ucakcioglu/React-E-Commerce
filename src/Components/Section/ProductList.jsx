@@ -73,7 +73,7 @@ export default function ProductList() {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="cursor-pointer h-4/6 w-4/6 object-contain"
+                    className="cursor-pointer h-1/2 w-full object-contain"
                     loading="lazy"
                   />
                   <div>
