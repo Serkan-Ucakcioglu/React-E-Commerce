@@ -1,244 +1,165 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { remove } from "../../Store/productSlice";
 
 function CheckOut() {
-  const [show, setShow] = useState(false);
+  const [shop, setShop] = useState(false);
+  let basket = useSelector((state) => state.productSlice.basket);
+  let count = useSelector((state) => state.productSlice.count);
+
+  const dispatch = useDispatch();
+
+  const removeBasket = (product) => {
+    dispatch(remove(product));
+  };
   return (
-    <div className="container m-h-96">
-      <div className="flex items-center justify-center max-h-96">
-        <button
-          onClick={() => setShow(!show)}
-          className="py-2 px-10 rounded bg-indigo-600 hover:bg-indigo-700 text-white"
-        >
-          Open Modal
-        </button>
-      </div>
-      {show && (
-        <div
-          className="w-full h-full bg-black bg-opacity-90 top-0 overflow-y-auto overflow-x-hidden fixed sticky-0"
-          id="chec-div"
-        >
-          <div
-            className="w-full absolute z-10 right-0 h-full overflow-x-hidden transform translate-x-0 transition ease-in-out duration-700"
-            id="checkout"
-          >
-            <div className="flex md:flex-row flex-col justify-end" id="cart">
-              <div
-                className="lg:w-1/2 w-full md:pl-10 pl-4 pr-10 md:pr-4 md:py-12 py-8 bg-white overflow-y-auto overflow-x-hidden h-screen"
-                id="scroll"
-              >
+    <div className="container mx-auto mt-10">
+      {count == 0 && (
+        <h1 className="text-red text-xl flex justify-center items-center">
+          Sepetiniz Boş.
+        </h1>
+      )}
+      {count > 0 && (
+        <div className="flex shadow-md my-10">
+          <div className="w-3/4 bg-white px-10 py-10">
+            <div className="flex justify-between border-b pb-8">
+              <h1 className="font-semibold text-2xl">Shopping Cart</h1>
+              <h2 className="font-semibold text-2xl">{basket.length}Items</h2>
+            </div>
+            <div className="flex mt-10 mb-5">
+              <h3 className="font-semibold text-gray-600 text-xs uppercase w-2/5">
+                Product Details
+              </h3>
+              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+                Quantity
+              </h3>
+              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+                Price
+              </h3>
+              <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">
+                Total
+              </h3>
+            </div>
+
+            {basket.map((product) => {
+              return (
                 <div
-                  className="flex items-center text-gray-500 hover:text-gray-600 cursor-pointer"
-                  onClick={() => setShow(!show)}
+                  className="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5"
+                  key={product.id}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="icon icon-tabler icon-tabler-chevron-left"
-                    width={16}
-                    height={16}
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="currentColor"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                  <NavLink
+                    className="flex w-2/5 mt-2"
+                    to={`/detail/${product.id}`}
                   >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <polyline points="15 6 9 12 15 18" />
-                  </svg>
-                  <p className="text-sm pl-2 leading-none">Back</p>
-                </div>
-                <p className="text-5xl font-black leading-10 text-gray-800 pt-3">
-                  Bag
-                </p>
-                <div className="md:flex items-center mt-14 py-8 border-t border-gray-200">
-                  <div className="w-1/4">
-                    <img
-                      src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller3.png"
-                      alt="img"
-                      className="w-full h-full object-center object-cover"
-                    />
-                  </div>
-                  <div className="md:pl-3 md:w-3/4">
-                    <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">
-                      RF293
-                    </p>
-                    <div className="flex items-center justify-between w-full pt-1">
-                      <p className="text-base font-black leading-none text-gray-800">
-                        North wolf bag
-                      </p>
-                      <select className="py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
-                        <option>01</option>
-                        <option>02</option>
-                        <option>03</option>
-                      </select>
+                    <div className="w-20">
+                      <img
+                        className="h-24 object-scale-down"
+                        src={product.image}
+                        alt={product.title}
+                      />
                     </div>
-                    <p className="text-xs leading-3 text-gray-600 pt-2">
-                      Height: 10 inches
-                    </p>
-                    <p className="text-xs leading-3 text-gray-600 py-4">
-                      Color: Black
-                    </p>
-                    <p className="w-96 text-xs leading-3 text-gray-600">
-                      Composition: 100% calf leather
-                    </p>
-                    <div className="flex items-center justify-between pt-5 pr-6">
-                      <div className="flex itemms-center">
-                        <p className="text-xs leading-3 underline text-gray-800 cursor-pointer">
-                          Add to favorites
-                        </p>
-                        <p className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer">
-                          Remove
-                        </p>
-                      </div>
-                      <p className="text-base font-black leading-none text-gray-800">
-                        $9,000
-                      </p>
+                    <div className="flex flex-col justify-center ml-4 mt-2 flex-grow">
+                      <span className="text-sm">
+                        <strong>{product.title}</strong>
+                      </span>
+                      <button
+                        onClick={() => removeBasket(product)}
+                        className="font-semibold hover:text-red-500 text-red-500 text-xs"
+                      >
+                        Remove
+                      </button>
                     </div>
-                  </div>
-                </div>
-                <div className="md:flex items-center py-8 border-t border-gray-200">
-                  <div className="w-1/4">
-                    <img
-                      src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller2.png"
-                      className="w-full h-full object-center object-cover"
-                      alt="img"
-                    />
-                  </div>
-                  <div className="md:pl-3 md:w-3/4 w-full">
-                    <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">
-                      RF293
-                    </p>
-                    <div className="flex items-center justify-between w-full pt-1">
-                      <p className="text-base font-black leading-none text-gray-800">
-                        Luxe Signature Ring
-                      </p>
-                      <select className="py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
-                        <option>01</option>
-                        <option>02</option>
-                        <option>03</option>
-                      </select>
-                    </div>
-                    <p className="text-xs leading-3 text-gray-600 pt-2">
-                      Height: 10 inches
-                    </p>
-                    <p className="text-xs leading-3 text-gray-600 py-4">
-                      Color: Black
-                    </p>
-                    <p className="w-96 text-xs leading-3 text-gray-600">
-                      Composition: 100% calf leather
-                    </p>
-                    <div className="flex items-center justify-between pt-5 pr-6">
-                      <div className="flex itemms-center">
-                        <p className="text-xs leading-3 underline text-gray-800 cursor-pointer">
-                          Add to favorites
-                        </p>
-                        <p className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer">
-                          Remove
-                        </p>
-                      </div>
-                      <p className="text-base font-black leading-none text-gray-800">
-                        $9,000
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="md:flex items-center py-8 border-t border-b border-gray-200">
-                  <div className="h-full w-1/4">
-                    <img
-                      src="https://cdn.tuk.dev/assets/templates/e-commerce-kit/bestSeller1.png"
-                      className="w-full h-full object-center object-cover"
-                      alt="img"
-                    />
-                  </div>
-                  <div className="md:pl-3 md:w-3/4 w-full">
-                    <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">
-                      RF293
-                    </p>
-                    <div className="flex items-center justify-between w-full pt-1">
-                      <p className="text-base font-black leading-none text-gray-800">
-                        Luxe Signature Shoes
-                      </p>
-                      <select className="py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
-                        <option>01</option>
-                        <option>02</option>
-                        <option>03</option>
-                      </select>
-                    </div>
-                    <p className="text-xs leading-3 text-gray-600 pt-2">
-                      Height: 10 inches
-                    </p>
-                    <p className="text-xs leading-3 text-gray-600 py-4">
-                      Color: Black
-                    </p>
-                    <p className="w-96 text-xs leading-3 text-gray-600">
-                      Composition: 100% calf leather
-                    </p>
-                    <div className="flex items-center justify-between pt-5 pr-6">
-                      <div className="flex itemms-center">
-                        <p className="text-xs leading-3 underline text-gray-800 cursor-pointer">
-                          Add to favorites
-                        </p>
-                        <p className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer">
-                          Remove
-                        </p>
-                      </div>
-                      <p className="text-base font-black leading-none text-gray-800">
-                        $9,000
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="xl:w-1/2 md:w-1/3 xl:w-1/4 w-full bg-gray-100 h-full">
-                <div className="flex flex-col md:h-screen px-14 py-20 justify-between overflow-y-auto">
-                  <div>
-                    <p className="text-4xl font-black leading-9 text-gray-800">
-                      Summary
-                    </p>
-                    <div className="flex items-center justify-between pt-16">
-                      <p className="text-base leading-none text-gray-800">
-                        Subtotal
-                      </p>
-                      <p className="text-base leading-none text-gray-800">
-                        $9,000
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-between pt-5">
-                      <p className="text-base leading-none text-gray-800">
-                        Shipping
-                      </p>
-                      <p className="text-base leading-none text-gray-800">
-                        $30
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-between pt-5">
-                      <p className="text-base leading-none text-gray-800">
-                        Tax
-                      </p>
-                      <p className="text-base leading-none text-gray-800">
-                        $35
-                      </p>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex items-center pb-6 justify-between lg:pt-5 pt-20">
-                      <p className="text-2xl leading-normal text-gray-800">
-                        Total
-                      </p>
-                      <p className="text-2xl font-bold leading-normal text-right text-gray-800">
-                        $10,240
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => setShow(!show)}
-                      className="text-base leading-none w-full py-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white"
+                  </NavLink>
+                  <div className="flex justify-center w-1/5">
+                    <svg
+                      className="fill-current text-gray-600 w-3"
+                      viewBox="0 0 448 512"
                     >
-                      Checkout
-                    </button>
+                      <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                    </svg>
+
+                    <input
+                      className="mx-2 border text-center w-8"
+                      type="text"
+                      value="1"
+                    />
+
+                    <svg
+                      className="fill-current text-gray-600 w-3"
+                      viewBox="0 0 448 512"
+                    >
+                      <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                    </svg>
                   </div>
+                  <span className="text-center w-1/5 font-semibold text-sm">
+                    {product.quantity}
+                  </span>
+                  <span className="text-center w-1/5 font-semibold text-sm">
+                    {product.quantity * product.price}
+                  </span>
                 </div>
+              );
+            })}
+
+            <NavLink
+              to={"/"}
+              className="flex font-semibold text-indigo-600 text-sm mt-10"
+            >
+              <svg
+                className="fill-current mr-2 text-indigo-600 w-4"
+                viewBox="0 0 448 512"
+              >
+                <path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
+              </svg>
+              Continue Shopping
+            </NavLink>
+          </div>
+
+          <div id="summary" className="w-1/4 px-8 py-10">
+            <h1 className="font-semibold text-2xl border-b pb-8">
+              Order Summary
+            </h1>
+
+            <div className="mt-2">
+              <label className="font-medium inline-block mb-3 text-sm uppercase">
+                Shipping
+              </label>
+              <select className="block p-2 text-gray-600 w-full text-sm">
+                <option>Standard shipping - $10.00</option>
+              </select>
+            </div>
+            <div className="py-10">
+              <label
+                htmlFor="promo"
+                className="font-semibold inline-block mb-3 text-sm uppercase"
+              >
+                Promo Code
+              </label>
+              <input
+                type="text"
+                id="promo"
+                placeholder="Enter your code"
+                className="p-2 text-sm w-full"
+              />
+            </div>
+            <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase rounded">
+              Apply
+            </button>
+            <div className="border-t mt-8">
+              <div className="flex font-semibold justify-between py-6 text-sm uppercase">
+                <span>Total cost</span>
+                <span>
+                  {basket.reduce(
+                    (total, item) => total + item.price * item.quantity,
+                    0
+                  ) + 10.0}
+                </span>
               </div>
+              <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full rounded">
+                Checkout
+              </button>
             </div>
           </div>
         </div>
