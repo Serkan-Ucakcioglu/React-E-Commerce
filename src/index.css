@@ -2,40 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-.container{
+.container {
     max-width: 1200px;
     width: 95%;
     margin: 0px auto;
 }
 
-.mi{
+.mi {
     margin-right: 295px;
 }
 
-
 @media screen and (max-width: 768px) {
-    .res{
+    .res {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 100%
+        width: 100%;
     }
-    .wll{
+    .wll {
         width: 100% !important;
     }
-    .spce{
+    .spce {
         width: 100% !important;
         display: flex;
         justify-content: space-between !important;
     }
-    .mls-2{
+    .mls-2 {
         margin-left: 20px;
     }
-    .d-none{
+    .d-none {
         display: none;
     }
-    .b-none{
+    .b-none {
         box-shadow: none;
     }
-  }
+}
