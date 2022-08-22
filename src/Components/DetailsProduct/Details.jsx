@@ -10,15 +10,19 @@ function Details() {
   let [detail, setDetail] = useState([]);
   const dispatch = useDispatch();
 
- 
   const addProduct = () => {
     dispatch(addBasket(detail));
   };
-  useEffect(() => {
+  const fetchDetail = () => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
-      .then((data) => setDetail(data));
-  
+      .then((data) => {
+        setDetail(data);
+      });
+  };
+  useEffect(() => {
+    fetchDetail();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -35,13 +39,14 @@ function Details() {
                 loading="lazy"
               />
               <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{detail.title}</div>
+                <div className="font-bold text-xl mb-2">
+                  {detail.id} {detail.title}
+                </div>
                 <p className="text-gray-500 font-bold text-base">
                   {detail.description}
                 </p>
                 <p className="text-gray-700 text-base mt-4">
                   <strong className="text-lg font-bold text-black ">
-                    {" "}
                     ${detail.price}
                   </strong>
                 </p>
