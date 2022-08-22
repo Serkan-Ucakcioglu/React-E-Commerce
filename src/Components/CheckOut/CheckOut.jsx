@@ -1,12 +1,10 @@
 import React from "react";
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { remove, updateQuantity } from "../../Store/productSlice";
 import { addBasket } from "../../Store/productSlice";
 
 function CheckOut() {
-  const [shop, setShop] = useState(false);
   let basket = useSelector((state) => state.productSlice.basket);
   let count = useSelector((state) => state.productSlice.count);
   const dispatch = useDispatch();
@@ -24,7 +22,7 @@ function CheckOut() {
 
   return (
     <div className="container mx-auto mt-10">
-      {count == 0 && (
+      {count === 0 && (
         <h1 className="text-red text-xl flex justify-center items-center">
           Sepetiniz Boş.
         </h1>
