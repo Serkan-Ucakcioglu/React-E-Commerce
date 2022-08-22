@@ -26,7 +26,7 @@ function Login() {
                   placeholder="Email"
                   className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                 />
-                <span className="text-xs tracking-wide text-red-600">
+                <span className="text-xs tracking-wide text-red-600 d-none">
                   Email field is required
                 </span>
               </div>

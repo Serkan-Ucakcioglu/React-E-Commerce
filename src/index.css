@@ -11,6 +11,9 @@
 .mi {
     margin-right: 295px;
 }
+.d-none {
+    display: none;
+}
 
 @media screen and (max-width: 768px) {
     .res {
