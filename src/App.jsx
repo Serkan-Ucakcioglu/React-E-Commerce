@@ -4,7 +4,6 @@ import Header from "./Components/Header/Header";
 import HomePage from "./Pages/HomePage";
 import DetailsPage from "./Pages/DetailsPage";
 import Login from "./Components/Forms/Login";
-import Register from "./Components/Forms/Register";
 import CheckOutPage from "./Pages/CheckOutPage";
 import DashBoard from "./Components/Account/DashBoard";
 import Error from "./Components/Error";
@@ -18,7 +17,6 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/detail/:id" element={<DetailsPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/checkout" element={<CheckOutPage />} />
         <Route path='/account' element={
           <PrivateRoute>
