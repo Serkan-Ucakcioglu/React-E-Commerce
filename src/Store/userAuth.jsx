@@ -10,12 +10,6 @@ const initialState = {
   errorMessage: "",
 };
 
-const config = {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-};
 
 export const userCheck = createAsyncThunk(
   "auth/login",
