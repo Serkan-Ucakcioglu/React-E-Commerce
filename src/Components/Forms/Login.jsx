@@ -12,14 +12,14 @@ function Login() {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isError, isSuccess, errorMessage, isFetching, user } = useSelector(
+  const { isError, isSuccess, isFetching, user } = useSelector(
     (state) => state.userAuth
   );
   const { username, password } = data;
 
   useEffect(() => {
     if (isError) {
-      toast.error(errorMessage);
+      toast.error('hata var burada');
     }
     if (isFetching) {
       toast.info("is fetching...");
@@ -29,7 +29,7 @@ function Login() {
       navigate("/account");
       toast.success("süper");
     }
-  }, [isError, isSuccess, user, isFetching, navigate, errorMessage]);
+  }, [isError, isSuccess, user, isFetching, navigate]);
 
   const onChange = (e) => {
     setData((prevState) => ({
