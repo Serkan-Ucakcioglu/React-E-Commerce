@@ -29,7 +29,7 @@ function Login() {
       navigate("/account");
       toast.success("süper");
     }
-  }, [isError, isSuccess, user,isFetching,navigate,errorMessage]);
+  }, [isError, isSuccess, user, isFetching, navigate, errorMessage]);
 
   const onChange = (e) => {
     setData((prevState) => ({
@@ -59,7 +59,9 @@ function Login() {
         pauseOnFocusLoss={false}
         draggable
         pauseOnHover
-      />
+      >
+        {toast} 
+      </ToastContainer>
       <div className="container">
         <div className="flex items-center justify-center min-h-screen">
           <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg">
