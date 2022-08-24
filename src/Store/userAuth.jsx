@@ -10,7 +10,6 @@ const initialState = {
   errorMessage: "",
 };
 
-
 export const userCheck = createAsyncThunk(
   "auth/login",
   async ({ username, password }, thunkAPI) => {

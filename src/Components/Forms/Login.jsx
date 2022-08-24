@@ -19,7 +19,7 @@ function Login() {
 
   useEffect(() => {
     if (isError) {
-      toast.error('hata var burada');
+      toast.error("hata var burada");
     }
     if (isFetching) {
       toast.info("is fetching...");
@@ -60,7 +60,7 @@ function Login() {
         draggable
         pauseOnHover
       >
-        {toast} 
+        {toast}
       </ToastContainer>
       <div className="container">
         <div className="flex items-center justify-center min-h-screen">
