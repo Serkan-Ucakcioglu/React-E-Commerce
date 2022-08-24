@@ -19,7 +19,7 @@ function Login() {
 
   useEffect(() => {
     if (isError) {
-      toast.error("hata var");
+      toast.error(errorMessage);
     }
     if (isFetching) {
       toast.info("is fetching...");

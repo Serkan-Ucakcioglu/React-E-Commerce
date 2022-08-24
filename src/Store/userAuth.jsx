@@ -30,7 +30,6 @@ export const userCheck = createAsyncThunk(
         localStorage.setItem("user", JSON.stringify(data));
       }
     } catch (e) {
-      const errorMessage = e.response.data;
       thunkAPI.rejectWithValue(e.response.data);
     }
   }
