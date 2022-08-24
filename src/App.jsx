@@ -6,6 +6,9 @@ import DetailsPage from "./Pages/DetailsPage";
 import Login from "./Components/Forms/Login";
 import Register from "./Components/Forms/Register";
 import CheckOutPage from "./Pages/CheckOutPage";
+import DashBoard from "./Components/Account/DashBoard";
+import Error from "./Components/Error";
+import PrivateRoute from "./Components/PrivateRoute";
 
 function App() {
   return (
@@ -17,6 +20,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/checkout" element={<CheckOutPage />} />
+        <Route path='/account' element={
+          <PrivateRoute>
+            <DashBoard/>
+          </PrivateRoute>
+        } />
+        <Route path='/err' element={<Error/>} />
       </Routes>
     </div>
   );
