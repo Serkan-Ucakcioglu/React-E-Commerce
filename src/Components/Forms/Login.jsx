@@ -29,7 +29,7 @@ function Login() {
       navigate("/account");
       toast.success("süper");
     }
-  }, [isError, isSuccess, user]);
+  }, [isError, isSuccess, user,isFetching,navigate,errorMessage]);
 
   const onChange = (e) => {
     setData((prevState) => ({
