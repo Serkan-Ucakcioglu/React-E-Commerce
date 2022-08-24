@@ -19,7 +19,7 @@ function Login() {
 
   useEffect(() => {
     if (isError) {
-      toast.error("hata var burada");
+      toast.error("Kullanıcı Adı Veya Parola Yanlış");
     }
     if (isFetching) {
       toast.info("is fetching...");
