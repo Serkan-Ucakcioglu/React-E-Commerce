@@ -57,6 +57,7 @@ function Login() {
         closeOnClick
         rtl={false}
         pauseOnFocusLoss={false}
+        theme="colored"
         draggable
         pauseOnHover
       >
