@@ -43,7 +43,8 @@
 }
 
 .active {
-    background-color: rgb(162, 250, 162);
+    background-color: rgb(15 23 42);
+    color: white;
     font-size: 20px;
     font-weight: bold;
 }
