@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Basket from "./Basket";
 
@@ -14,7 +14,7 @@ function Header() {
           <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
               <span className="sr-only">Workflow</span>
-              <NavLink
+              <Link
                 className="text-base font-medium text-gray-500 hover:text-gray-900"
                 data-mdb-ripple="true"
                 data-mdb-ripple-color="light"
@@ -25,7 +25,7 @@ function Header() {
                   src="https://www.ekinokssoftware.com/common/slider_image/logo-mid.png"
                   alt="Ekinoks"
                 />
-              </NavLink>
+              </Link>
             </div>
             <nav className="hidden md:flex space-x-10">
               <div className="relative">
