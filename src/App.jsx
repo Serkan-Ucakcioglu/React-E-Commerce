@@ -18,12 +18,16 @@ function App() {
         <Route path="/detail/:id" element={<DetailsPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/checkout" element={<CheckOutPage />} />
-        <Route path='/account' element={
-          <PrivateRoute>
-            <DashBoard/>
-          </PrivateRoute>
-        } />
-        <Route path='/err' element={<Error/>} />
+        <Route
+          path="/account"
+          element={
+            <PrivateRoute>
+              <DashBoard />
+            </PrivateRoute>
+          }
+        >
+          <Route path="/account/err" element={<Error />} />
+        </Route>
       </Routes>
     </div>
   );

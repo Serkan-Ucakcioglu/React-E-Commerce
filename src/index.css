@@ -41,3 +41,9 @@
         box-shadow: none;
     }
 }
+
+.active {
+    background-color: rgb(162, 250, 162);
+    font-size: 20px;
+    font-weight: bold;
+}
