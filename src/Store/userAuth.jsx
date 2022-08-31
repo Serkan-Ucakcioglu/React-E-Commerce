@@ -25,7 +25,7 @@ export const userCheck = createAsyncThunk(
         }),
       });
       const data = await response.json();
-      if (response.status === 200) {
+      if (response.status !== 401) {
         localStorage.setItem("user", JSON.stringify(data));
       }
     } catch (e) {

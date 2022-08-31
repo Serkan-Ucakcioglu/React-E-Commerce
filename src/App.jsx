@@ -8,6 +8,9 @@ import CheckOutPage from "./Pages/CheckOutPage";
 import DashBoard from "./Components/Account/DashBoard";
 import Error from "./Components/Error";
 import PrivateRoute from "./Components/PrivateRoute";
+import AddProduct from "./Components/Account/UserOperations/AddProduct";
+import EditProduct from "./Components/Account/UserOperations/EditProduct";
+import DeleteProduct from "./Components/Account/UserOperations/DeleteProduct";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
           }
         >
           <Route path="/account/err" element={<Error />} />
+          <Route path="/account/add-product" element={<AddProduct />} />
+          <Route path="/account/edit-product" element={<EditProduct />} />
+          <Route path="/account/delete-product" element={<DeleteProduct />} />
         </Route>
       </Routes>
     </div>

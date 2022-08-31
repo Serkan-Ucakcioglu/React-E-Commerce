@@ -3,19 +3,21 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { userCheck } from "../../Store/userAuth";
 import { ToastContainer, toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
-  const [data, setData] = useState({
-    username: "",
-    password: "",
-  });
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError, isFetching } = useSelector((state) => state.userAuth);
   let user = localStorage.getItem("user") == null ? false : true;
 
-  const { username, password } = data;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => dispatch(userCheck(data));
 
   useEffect(() => {
     if (isError) {
@@ -30,22 +32,6 @@ function Login() {
       toast.success("süper");
     }
   }, [isError, user, isFetching, navigate]);
-
-  const onChange = (e) => {
-    setData((prevState) => ({
-      ...prevState,
-      [e.target.name]: [e.target.value],
-    }));
-  };
-
-  const go = () => {
-    const user = {
-      username,
-      password,
-    };
-
-    dispatch(userCheck(user));
-  };
 
   return (
     <>
@@ -64,8 +50,11 @@ function Login() {
         {toast}
       </ToastContainer>
       <div className="container">
-        <div className="flex items-center justify-center min-h-screen">
-          <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg">
+        <div className="flex items-center justify-center mt-60">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="px-8 py-6 mt-4 text-left bg-white shadow-lg"
+          >
             <div className="flex justify-center">
               <NavLink to={"/"}>
                 <img
@@ -84,29 +73,37 @@ function Login() {
                   <input
                     type="text"
                     placeholder="username"
-                    name="username"
-                    value={username}
+                    {...register("username", {
+                      required: true,
+                      minLength: 4,
+                      maxLength: 20,
+                    })}
                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                    onChange={onChange}
                   />
-                  <span className="text-xs tracking-wide text-red-600 d-none">
-                    Email field is required
-                  </span>
+                  {errors.username && (
+                    <div className="text-red-500">This field is username</div>
+                  )}
                 </div>
                 <div className="mt-4">
                   <label className="block">Password</label>
                   <input
                     type="password"
                     placeholder="Password"
-                    name="password"
-                    value={password}
+                    {...register("password", {
+                      required: true,
+                      minLength: 7,
+                      maxLength: 20,
+                    })}
                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                    onChange={onChange}
                   />
+                  {errors.password && (
+                    <div className="text-red-500">This field is password</div>
+                  )}
                 </div>
                 <div className="flex items-baseline justify-between">
                   <button
-                    onClick={go}
+                    onClick={handleSubmit(onSubmit)}
+                    type="submit"
                     className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900"
                   >
                     Login
@@ -114,7 +111,7 @@ function Login() {
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>
