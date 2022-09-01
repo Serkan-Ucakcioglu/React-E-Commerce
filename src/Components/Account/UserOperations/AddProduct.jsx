@@ -25,7 +25,8 @@ function AddProduct() {
         onSubmit={handleSubmit(OnSubmit)}
         className="w-1/3 flex flex-col justify-center m-auto"
       >
-        <div className="mb-6">
+        <h1 className="mb-6 font-extrabold text-4xl">Add Product</h1>
+        <div className="mb-4">
           <label
             htmlFor="title"
             className="block mb-2 text-left text-sm font-medium text-gray-900 dark:text-gray-300"
