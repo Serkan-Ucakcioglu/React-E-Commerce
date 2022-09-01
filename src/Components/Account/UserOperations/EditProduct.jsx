@@ -34,15 +34,17 @@ function EditProduct() {
             type="number"
             id="s"
             {...register("id", {
-              required: true,
-              minNumber: 0,
+              required: "required",
+              maxLength: {
+                value: 3,
+                message: "max number ! ",
+              },
             })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Edit Product Id"
           />
-          {errors.id && (
-            <p className="text-red-500 text-left">Product Id required</p>
-          )}
+
+          <p className="text-red-500 text-left">{errors.id?.message}</p>
         </div>
         <div className="mb-6">
           <label
@@ -55,16 +57,21 @@ function EditProduct() {
             type="text"
             id="title"
             {...register("title", {
-              required: true,
-              minLength: 5,
-              maxLength: 15,
+              required: "required !",
+              minLength: {
+                value: 5,
+                message: "Minimum length 5!",
+              },
+              maxLength: {
+                value: 15,
+                message: "Maximum length 15",
+              },
             })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Product Title"
           />
-          {errors.title && (
-            <p className="text-red-500 text-left">Product Title required</p>
-          )}
+
+          <p className="text-red-500 text-left">{errors.title?.message}</p>
         </div>
         <div className="mb-6">
           <label
@@ -76,12 +83,11 @@ function EditProduct() {
           <input
             type="number"
             id="price"
-            {...register("price", { required: true, minNumber: 5 })}
+            {...register("price", { required: "required !", minNumber: 5 })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
-          {errors.price && (
-            <p className="text-red-500 text-left">Product Price required</p>
-          )}
+
+          <p className="text-red-500 text-left">{errors.price?.message}</p>
         </div>
         <div className="mb-6">
           <label
@@ -94,15 +100,22 @@ function EditProduct() {
             type="text"
             id="description"
             {...register("description", {
-              required: true,
-              minLength: 8,
-              maxLength: 25,
+              required: "required",
+              minLength: {
+                value: 8,
+                message: "Minimum length 8!",
+              },
+              maxLength: {
+                value: 25,
+                message: "Maximum Length 25!",
+              },
             })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
-          {errors.description && (
-            <p className="text-red-500 text-left">description required </p>
-          )}
+
+          <p className="text-red-500 text-left">
+            {errors.description?.message}
+          </p>
         </div>
         <div className="mb-6">
           <label
@@ -114,12 +127,11 @@ function EditProduct() {
           <input
             type="url"
             name="image"
-            {...register("image", { required: true })}
+            {...register("image", { required: "url required!" })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
-          {errors.image && (
-            <p className="text-red-500 text-left">invalid url</p>
-          )}
+
+          <p className="text-red-500 text-left">{errors.image?.message}</p>
         </div>
         <div className="flex items-start mb-6">
           <div className="flex items-center h-5">
