@@ -11,6 +11,7 @@ import PrivateRoute from "./Components/PrivateRoute";
 import AddProduct from "./Components/Account/UserOperations/AddProduct";
 import EditProduct from "./Components/Account/UserOperations/EditProduct";
 import DeleteProduct from "./Components/Account/UserOperations/DeleteProduct";
+import WelcomeDashboard from "./Components/Account/WelcomeDashboard";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             </PrivateRoute>
           }
         >
+          <Route index element={<WelcomeDashboard />} />
           <Route path="/account/err" element={<Error />} />
           <Route path="/account/add-product" element={<AddProduct />} />
           <Route path="/account/edit-product" element={<EditProduct />} />
