@@ -74,7 +74,7 @@ function Login() {
                     type="text"
                     placeholder="username"
                     {...register("username", {
-                      required: 'required !',
+                      required: "required !",
                       minLength: {
                         value: 4,
                         message: "Minimum Length 4!",
@@ -86,9 +86,8 @@ function Login() {
                     })}
                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
-                 
-                    <div className="text-red-500">{errors.username?.message}</div>
-                  
+
+                  <div className="text-red-500">{errors.username?.message}</div>
                 </div>
                 <div className="mt-4">
                   <label className="block">Password</label>
@@ -96,22 +95,21 @@ function Login() {
                     type="password"
                     placeholder="Password"
                     {...register("password", {
-                      required: 'required!',
+                      required: "required!",
                       minLength: {
                         value: 7,
-                        message: 'Minimum Length 7!'
+                        message: "Minimum Length 7!",
                       },
                       maxLength: {
                         value: 15,
-                        message: 'Maximum Length 15!'
+                        message: "Maximum Length 15!",
                       },
-                     pattern: /^[A-Za-z]+$/i 
+                      pattern: /^[A-Za-z]+$/i,
                     })}
                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
-                 
-                    <div className="text-red-500">{errors.password?.message}</div>
-                
+
+                  <div className="text-red-500">{errors.password?.message}</div>
                 </div>
                 <div className="flex items-baseline justify-between">
                   <button
