@@ -7,7 +7,14 @@ function DeleteProduct() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    fetch(`https://fakestoreapi.com/products/${data.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
+  };
+
   return (
     <div className="container h-full flex items-center">
       <form
