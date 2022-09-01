@@ -19,7 +19,7 @@ function DashBoard() {
             <li>
               <NavLink
                 to={"/"}
-                className="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 text-black dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700"
               >
                 <svg
                   aria-hidden="true"
@@ -37,7 +37,7 @@ function DashBoard() {
             <li>
               <NavLink
                 to={"/account/add-product"}
-                className="flex items-center justify-start p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 text-black dark:hover:bg-gray-700"
+                className="flex items-center justify-start p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700"
               >
                 <svg
                   height="25px"
@@ -55,7 +55,7 @@ function DashBoard() {
             <li>
               <NavLink
                 to={"/account/edit-product"}
-                className="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 text-black dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700"
               >
                 <svg
                   width="24px"
@@ -88,7 +88,7 @@ function DashBoard() {
             <li>
               <NavLink
                 to={"/account/delete-product"}
-                className="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 text-black dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 hover:text-black dark:hover:bg-gray-700"
               >
                 <div>🗑️</div>
                 <span className="flex ml-3 whitespace-nowrap">Delete</span>
