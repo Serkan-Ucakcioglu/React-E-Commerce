@@ -7,14 +7,23 @@ function AddProduct() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const OnSubmit = (data) => {
+    fetch("https://fakestoreapi.com/products", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
     console.log(data);
   };
 
   return (
     <div className="container h-full flex items-center">
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(OnSubmit)}
         className="w-1/3 flex flex-col justify-center m-auto"
       >
         <div className="mb-6">
@@ -90,13 +99,13 @@ function AddProduct() {
           </label>
           <input
             type="url"
-            {...register("url", {
+            {...register("image", {
               required: true,
             })}
             id="image"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
-          {errors.url && (
+          {errors.image && (
             <div className="text-red-500 text-left">minimum url </div>
           )}
         </div>
