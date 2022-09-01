@@ -6,7 +6,17 @@ function EditProduct() {
     register,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    fetch(`https://fakestoreapi.com/products/${data.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
+  };
   return (
     <div className="container h-full flex items-center">
       <form
@@ -104,10 +114,12 @@ function EditProduct() {
           <input
             type="url"
             name="image"
-            {...register("url", { required: true })}
+            {...register("image", { required: true })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
-          {errors.url && <p className="text-red-500 text-left">invalid url</p>}
+          {errors.image && (
+            <p className="text-red-500 text-left">invalid url</p>
+          )}
         </div>
         <div className="flex items-start mb-6">
           <div className="flex items-center h-5">
