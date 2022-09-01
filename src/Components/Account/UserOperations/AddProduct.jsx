@@ -17,7 +17,6 @@ function AddProduct() {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-    console.log(data);
   };
 
   return (
@@ -37,18 +36,20 @@ function AddProduct() {
             type="text"
             id="title"
             {...register("title", {
-              required: true,
-              minLength: 5,
-              maxLength: 12,
+              required: "please required !",
+              minLength: {
+                value: 5,
+                message: "Minimum length 5 !.",
+              },
+              maxLength: {
+                value: 10,
+                message: "Maximum length 10 !",
+              },
             })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Product Title"
           />
-          {errors.title && (
-            <div className="text-red-500 text-left">
-              minimum length must be 5
-            </div>
-          )}
+          <div className="text-left text-red-500"> {errors.title?.message}</div>
         </div>
         <div className="mb-6">
           <label
@@ -60,14 +61,11 @@ function AddProduct() {
           <input
             type="number"
             id="price"
-            {...register("price", { required: true, minNumber: 5 })}
+            {...register("price", { required: "required !" })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
-          {errors.price && (
-            <div className="text-red-500 text-left">
-              minimum price must be 5
-            </div>
-          )}
+
+          <div className="text-red-500 text-left">{errors.price?.message}</div>
         </div>
         <div className="mb-6">
           <label
@@ -80,15 +78,22 @@ function AddProduct() {
             type="text"
             id="description"
             {...register("description", {
-              required: true,
-              minLength: 8,
-              maxLength: 20,
+              required: "required !",
+              minLength: {
+                value: 8,
+                message: "Minimum Length 8 !",
+              },
+              maxLength: {
+                value: 30,
+                message: "Maximum Length 20 !",
+              },
             })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
-          {errors.description && (
-            <div className="text-red-500 text-left">description must be 8</div>
-          )}
+
+          <div className="text-red-500 text-left">
+            {errors.description?.message}
+          </div>
         </div>
         <div className="mb-6">
           <label
@@ -100,14 +105,13 @@ function AddProduct() {
           <input
             type="url"
             {...register("image", {
-              required: true,
+              required: "required image url ! ",
             })}
             id="image"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           />
-          {errors.image && (
-            <div className="text-red-500 text-left">minimum url </div>
-          )}
+
+          <div className="text-red-500 text-left">{errors.image?.message} </div>
         </div>
         <div className="flex items-start mb-6">
           <div className="flex items-center h-5">
