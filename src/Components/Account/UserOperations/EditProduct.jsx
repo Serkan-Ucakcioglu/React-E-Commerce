@@ -23,6 +23,7 @@ function EditProduct() {
         onSubmit={handleSubmit(onSubmit)}
         className="w-1/3 flex flex-col justify-center m-auto"
       >
+        <h1 className="mb-6 font-extrabold text-4xl">Edit Product</h1>
         <div className="mb-6">
           <label
             htmlFor="s"
