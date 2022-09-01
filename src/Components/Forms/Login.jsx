@@ -97,14 +97,13 @@ function Login() {
                     {...register("password", {
                       required: "required!",
                       minLength: {
-                        value: 7,
-                        message: "Minimum Length 7!",
+                        value: 5,
+                        message: "Minimum Length 5!",
                       },
                       maxLength: {
                         value: 15,
                         message: "Maximum Length 15!",
                       },
-                      pattern: /^[A-Za-z]+$/i,
                     })}
                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />

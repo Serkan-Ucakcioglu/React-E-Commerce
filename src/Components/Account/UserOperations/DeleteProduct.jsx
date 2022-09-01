@@ -31,7 +31,10 @@ function DeleteProduct() {
           <input
             type="text"
             id="productId"
-            {...register("id", { required: "required  id!" })}
+            {...register("id", {
+              required: "required  id!",
+              max: { value: 20, message: "max id 20!" },
+            })}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="The id number of the product you want to delete"
             required=""
