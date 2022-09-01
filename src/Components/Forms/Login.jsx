@@ -74,15 +74,21 @@ function Login() {
                     type="text"
                     placeholder="username"
                     {...register("username", {
-                      required: true,
-                      minLength: 4,
-                      maxLength: 20,
+                      required: 'required !',
+                      minLength: {
+                        value: 4,
+                        message: "Minimum Length 4!",
+                      },
+                      maxLength: {
+                        value: 20,
+                        message: "Maximum Length 4!",
+                      },
                     })}
                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
-                  {errors.username && (
-                    <div className="text-red-500">This field is username</div>
-                  )}
+                 
+                    <div className="text-red-500">{errors.username?.message}</div>
+                  
                 </div>
                 <div className="mt-4">
                   <label className="block">Password</label>
@@ -90,15 +96,22 @@ function Login() {
                     type="password"
                     placeholder="Password"
                     {...register("password", {
-                      required: true,
-                      minLength: 7,
-                      maxLength: 20,
+                      required: 'required!',
+                      minLength: {
+                        value: 7,
+                        message: 'Minimum Length 7!'
+                      },
+                      maxLength: {
+                        value: 15,
+                        message: 'Maximum Length 15!'
+                      },
+                     pattern: /^[A-Za-z]+$/i 
                     })}
                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                   />
-                  {errors.password && (
-                    <div className="text-red-500">This field is password</div>
-                  )}
+                 
+                    <div className="text-red-500">{errors.password?.message}</div>
+                
                 </div>
                 <div className="flex items-baseline justify-between">
                   <button
