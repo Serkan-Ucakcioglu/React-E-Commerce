@@ -14,16 +14,16 @@ function DashBoard() {
   return (
     <div className="flex">
       <aside className="w-64 h-screen sticky" aria-label="Sidebar">
-        <div className="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+        <div className="overflow-y-auto py-4 px-3 bg-slate-600 rounded dark:bg-gray-800">
           <ul className="space-y-2 h-screen">
             <li>
               <NavLink
                 to={"/"}
-                className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
                   aria-hidden="true"
-                  className="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                  className="w-6 h-6 text-white transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -37,15 +37,15 @@ function DashBoard() {
             <li>
               <NavLink
                 to={"/account/add-product"}
-                className="flex items-center justify-start p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center justify-start p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
-                  enable-background="new 0 0 512 512"
                   height="25px"
                   id="Layer_1"
                   version="1.1"
                   viewBox="0 0 512 512"
                   width="25px"
+                  fill="white"
                 >
                   <path d="M256,512C114.625,512,0,397.391,0,256C0,114.609,114.625,0,256,0c141.391,0,256,114.609,256,256  C512,397.391,397.391,512,256,512z M256,64C149.969,64,64,149.969,64,256s85.969,192,192,192c106.047,0,192-85.969,192-192  S362.047,64,256,64z M288,384h-64v-96h-96v-64h96v-96h64v96h96v64h-96V384z" />
                 </svg>
@@ -55,22 +55,30 @@ function DashBoard() {
             <li>
               <NavLink
                 to={"/account/edit-product"}
-                className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg
                   width="24px"
                   height="24px"
                   viewBox="0 0 24 24"
+                  className="text-white"
                   id="_24x24_On_Light_Edit"
                   data-name="24x24/On Light/Edit"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <rect id="view-box" width="24" height="24" fill="none" />
+                  <rect
+                    className="text-white"
+                    id="view-box"
+                    width="24"
+                    height="24"
+                    fill="none"
+                  />
                   <path
                     id="Shape"
+                    className="text-white"
                     d="M.75,17.5A.751.751,0,0,1,0,16.75V12.569a.755.755,0,0,1,.22-.53L11.461.8a2.72,2.72,0,0,1,3.848,0L16.7,2.191a2.72,2.72,0,0,1,0,3.848L5.462,17.28a.747.747,0,0,1-.531.22ZM1.5,12.879V16h3.12l7.91-7.91L9.41,4.97ZM13.591,7.03l2.051-2.051a1.223,1.223,0,0,0,0-1.727L14.249,1.858a1.222,1.222,0,0,0-1.727,0L10.47,3.91Z"
                     transform="translate(3.25 3.25)"
-                    fill="#141124"
+                    fill="white"
                   />
                 </svg>
 
@@ -80,7 +88,7 @@ function DashBoard() {
             <li>
               <NavLink
                 to={"/account/delete-product"}
-                className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="flex items-center p-2 text-base font-normal text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <div>🗑️</div>
                 <span className="flex ml-3 whitespace-nowrap">Delete</span>
