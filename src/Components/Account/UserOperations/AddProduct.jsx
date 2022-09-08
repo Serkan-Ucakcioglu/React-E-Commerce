@@ -17,6 +17,8 @@ function AddProduct() {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+
+      alert('api database işlemeye izin vermiyor console bak')
   };
 
   return (

@@ -16,7 +16,10 @@ function EditProduct() {
     })
       .then((res) => res.json())
       .then((json) => console.log(json));
+      alert('api database işlemeye izin vermiyor console bak')
   };
+
+
   return (
     <div className="container h-full flex items-center">
       <form
