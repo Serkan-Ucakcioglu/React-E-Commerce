@@ -16,7 +16,7 @@ function EditProduct() {
     })
       .then((res) => res.json())
       .then((json) => console.log(json));
-      alert(`api database işlemeye izin vermiyor console bak
+    alert(`api database işlemeye izin vermiyor console bak
       ${JSON.stringify(data)}
     `);
   };
