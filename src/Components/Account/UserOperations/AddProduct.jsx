@@ -17,8 +17,9 @@ function AddProduct() {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-
-      alert('api database işlemeye izin vermiyor console bak')
+    alert(`api database işlemeye izin vermiyor console bak
+        ${JSON.stringify(data)}
+      `);
   };
 
   return (
@@ -119,6 +120,27 @@ function AddProduct() {
 
           <div className="text-red-500 text-left">{errors.image?.message} </div>
         </div>
+        <div className="mb-6">
+          <label htmlFor="cat">Category</label>
+          <select
+            id="cat"
+            {...register("category", { required: "required options !" })}
+          >
+            <option value="" selected>
+              {" "}
+              choose ?{" "}
+            </option>
+            <option value="electronics">Electronics</option>
+            <option value="jewelery">Jewelery</option>
+            <option value="men's clothing">Men's clothing</option>
+            <option value="women's clothing">Women's clothing</option>
+          </select>
+
+          <div className="text-red-500 text-left">
+            {errors.category?.message}
+          </div>
+        </div>
+
         <div className="flex items-start mb-6">
           <div className="flex items-center h-5">
             <input
