@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -13,22 +13,24 @@ function Details() {
   const addProduct = () => {
     dispatch(addBasket(detail));
   };
-  const fetchDetail = (signal) => {
-    fetch(`https://fakestoreapi.com/products/${id}`, signal)
-      .then((res) => res.json())
-      .then((data) => {
-        setDetail(data);
-      });
-  };
+  const fetchDetail = useCallback(
+    (signal) => {
+      fetch(`https://fakestoreapi.com/products/${id}`, signal)
+        .then((res) => res.json())
+        .then((data) => {
+          setDetail(data);
+        });
+    },
+    [id]
+  );
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
     fetchDetail(signal);
     return () => {
       controller.abort();
-      console.log(signal);
     };
-  }, []);
+  }, [fetchDetail]);
 
   const details = (
     <div className="max-w-sm flex flex-col items-center rounded overflow-hidden shadow-lg">

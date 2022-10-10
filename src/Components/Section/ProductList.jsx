@@ -18,6 +18,8 @@ export default function ProductList() {
     return () => {
       controller.abort();
     };
+
+    // eslint-disable-next-line
   }, []);
 
   const all =
