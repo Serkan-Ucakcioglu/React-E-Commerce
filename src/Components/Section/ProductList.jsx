@@ -9,11 +9,15 @@ export default function ProductList() {
   const [select, setSelect] = useState("choose");
   const data = entities.filter((product) => product.category === select);
 
-  const getData = () => dispatch(getProduct());
+  const getData = (data) => dispatch(getProduct(data));
 
   useEffect(() => {
-    getData();
-    // eslint-disable-next-line
+    const controller = new AbortController();
+    const signal = controller.signal;
+    getData({ signal });
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   const all =
