@@ -14,13 +14,15 @@ import DeleteProduct from "./Components/Account/UserOperations/DeleteProduct";
 import WelcomeDashboard from "./Components/Account/WelcomeDashboard";
 
 function App() {
+  let user = localStorage.getItem("user") == null ? false : true;
+
   return (
     <div className="App">
       <Routes>
         <Route path="/header" element={<Header />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/detail/:id" element={<DetailsPage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={user ? <DashBoard /> : <Login />} />
         <Route path="/checkout" element={<CheckOutPage />} />
         <Route
           path="/account"

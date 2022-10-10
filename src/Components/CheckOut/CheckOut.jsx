@@ -12,6 +12,7 @@ import { addBasket } from "../../Store/productSlice";
 function CheckOut() {
   let basket = useSelector(selectedBasket);
   let count = useSelector(selectedCount);
+
   const dispatch = useDispatch();
 
   const removeBasket = (product) => {
