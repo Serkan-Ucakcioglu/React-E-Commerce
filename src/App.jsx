@@ -36,6 +36,7 @@ function App() {
           <Route path="/account/edit-product" element={<EditProduct />} />
           <Route path="/account/delete-product" element={<DeleteProduct />} />
         </Route>
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );
