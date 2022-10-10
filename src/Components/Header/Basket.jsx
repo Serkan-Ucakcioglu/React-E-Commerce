@@ -72,7 +72,7 @@ function Basket() {
                                     <img
                                       src={product.image}
                                       alt={product.title}
-                                      className="h-full w-full  object-scale-down"
+                                      className="h-full w-full object-scale-down"
                                     />
                                   </div>
 
@@ -80,7 +80,7 @@ function Basket() {
                                     <div>
                                       <div className="flex justify-between text-base font-medium text-gray-900">
                                         <h3>
-                                          <div> {product.title} </div>
+                                          <div>{product.title}</div>
                                         </h3>
                                         <p className="ml-4">
                                           <strong>
