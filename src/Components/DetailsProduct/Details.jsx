@@ -13,16 +13,21 @@ function Details() {
   const addProduct = () => {
     dispatch(addBasket(detail));
   };
-  const fetchDetail = () => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
+  const fetchDetail = (signal) => {
+    fetch(`https://fakestoreapi.com/products/${id}`, signal)
       .then((res) => res.json())
       .then((data) => {
         setDetail(data);
       });
   };
   useEffect(() => {
-    fetchDetail();
-    // eslint-disable-next-line
+    const controller = new AbortController();
+    const signal = controller.signal;
+    fetchDetail(signal);
+    return () => {
+      controller.abort();
+      console.log(signal);
+    };
   }, []);
 
   return (
