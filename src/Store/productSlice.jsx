@@ -6,6 +6,7 @@ const initialState = JSON.parse(localStorage.getItem("basket")) || {
   loading: false,
   count: 0,
 };
+
 export const getProduct = createAsyncThunk(
   "users/fetchByIdStatus",
   async (signal) => {
