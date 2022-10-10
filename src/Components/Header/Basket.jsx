@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { remove } from "../../Store/productSlice";
+import {
+  remove,
+  selectedBasket,
+  selectedCount,
+} from "../../Store/productSlice";
 import { NavLink } from "react-router-dom";
 
 function Basket() {
   let [shop, setShop] = useState(false);
-  let basket = useSelector((state) => state.productSlice.basket);
-  let count = useSelector((state) => state.productSlice.count);
+  let basket = useSelector(selectedBasket);
+  let count = useSelector(selectedCount);
   const dispatch = useDispatch();
 
   const removeBasket = (product) => {
