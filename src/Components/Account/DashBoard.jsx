@@ -15,7 +15,7 @@ function DashBoard() {
     <div className="flex">
       <aside className="w-64 h-screen sticky" aria-label="Sidebar">
         <div className="overflow-y-auto py-4 px-3 bg-slate-800 rounded dark:bg-gray-800">
-          <ul className="space-y-2 h-screen">
+          <ul className="space-y-2 h-screen flex flex-col">
             <li>
               <NavLink
                 to={"/"}
@@ -98,7 +98,7 @@ function DashBoard() {
               <button
                 type="button"
                 onClick={out}
-                className="text-white mt-4 bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                className="text-white  bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
               >
                 Log Out
               </button>
