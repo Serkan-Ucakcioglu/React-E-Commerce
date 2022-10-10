@@ -14,7 +14,7 @@ function DashBoard() {
   return (
     <div className="flex">
       <aside className="w-64 h-screen sticky" aria-label="Sidebar">
-        <div className="overflow-y-auto py-4 px-3 bg-slate-600 rounded dark:bg-gray-800">
+        <div className="overflow-y-auto py-4 px-3 bg-slate-800 rounded dark:bg-gray-800">
           <ul className="space-y-2 h-screen">
             <li>
               <NavLink
