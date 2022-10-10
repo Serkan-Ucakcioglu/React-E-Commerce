@@ -71,5 +71,8 @@ const productSlice = createSlice({
   },
 });
 
+export const selectedBasket = (state) => state.productSlice.basket;
+export const selectedCount = (state) => state.productSlice.count;
+
 export const { addBasket, remove, updateQuantity } = productSlice.actions;
 export default productSlice.reducer;
