@@ -8,8 +8,8 @@ const initialState = JSON.parse(localStorage.getItem("basket")) || {
 };
 export const getProduct = createAsyncThunk(
   "users/fetchByIdStatus",
-  async () => {
-    const res = await fetch("https://fakestoreapi.com/products");
+  async (signal) => {
+    const res = await fetch("https://fakestoreapi.com/products", signal);
     const data = await res.json();
     return data;
   }
