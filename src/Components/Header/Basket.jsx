@@ -167,7 +167,7 @@ function Basket() {
       >
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDSScOc9jICGGssMug0jWrOgeoFX6K78kLtw&usqp=CAU"
-          alt=""
+          alt="basket"
         />
         {count > 0 && (
           <div className="w-4">
