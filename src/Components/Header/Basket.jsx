@@ -72,7 +72,7 @@ function Basket() {
                                     <img
                                       src={product.image}
                                       alt={product.title}
-                                      className="h-full w-full object-cover object-scale-down"
+                                      className="h-full w-full  object-scale-down"
                                     />
                                   </div>
 
