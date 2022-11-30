@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit/";
+import { createSlice } from "@reduxjs/toolkit/";
+import { userCheck } from "../Api/api";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
@@ -9,30 +10,6 @@ const initialState = {
   isError: false,
   errorMessage: "",
 };
-
-export const userCheck = createAsyncThunk(
-  "auth/login",
-  async ({ username, password }, thunkAPI) => {
-    try {
-      const response = await fetch("https://fakestoreapi.com/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
-      const data = await response.json();
-      if (response.status !== 401) {
-        localStorage.setItem("user", JSON.stringify(data));
-      }
-    } catch (e) {
-      thunkAPI.rejectWithValue(e.response.data);
-    }
-  }
-);
 
 const userAuth = createSlice({
   name: "userAuth",

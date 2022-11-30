@@ -1,4 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit/";
+import { createSlice } from "@reduxjs/toolkit/";
+import { getProduct } from "../Api/api";
 
 const initialState = JSON.parse(localStorage.getItem("basket")) || {
   basket: [],
@@ -6,15 +7,6 @@ const initialState = JSON.parse(localStorage.getItem("basket")) || {
   loading: false,
   count: 0,
 };
-
-export const getProduct = createAsyncThunk(
-  "users/fetchByIdStatus",
-  async (signal) => {
-    const res = await fetch("https://fakestoreapi.com/products", signal);
-    const data = await res.json();
-    return data;
-  }
-);
 
 const productSlice = createSlice({
   name: "productSlice",

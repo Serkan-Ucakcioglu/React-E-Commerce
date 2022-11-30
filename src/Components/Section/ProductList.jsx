@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getProduct } from "../../Features/productSlice";
+import { getProduct } from "../../Api/api";
 
 export default function ProductList() {
   const dispatch = useDispatch();

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
-import { userCheck } from "../../Features/userAuth";
+import { userCheck } from "../../Api/api";
 
 function Login() {
   const dispatch = useDispatch();
