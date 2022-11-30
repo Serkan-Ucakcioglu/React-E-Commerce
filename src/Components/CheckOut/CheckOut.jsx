@@ -1,13 +1,12 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {
+  addBasket,
   remove,
   selectedBasket,
   selectedCount,
   updateQuantity,
-} from "../../Store/productSlice";
-import { addBasket } from "../../Store/productSlice";
+} from "../../Features/productSlice";
 
 function CheckOut() {
   let basket = useSelector(selectedBasket);

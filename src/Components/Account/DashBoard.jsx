@@ -1,7 +1,6 @@
-import React from "react";
-import { logOut } from "../../Store/userAuth";
 import { useDispatch } from "react-redux";
 import { useNavigate, NavLink, Outlet } from "react-router-dom";
+import { logOut } from "../../Features/userAuth";
 
 function DashBoard() {
   const dispatch = useDispatch();

@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addBasket } from "../../Store/productSlice";
 import Header from "../Header/Header";
+import { addBasket } from "../../Features/productSlice";
 
 function Details() {
   const { id } = useParams();

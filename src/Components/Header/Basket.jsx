@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import { NavLink } from "react-router-dom";
 import {
   remove,
   selectedBasket,
   selectedCount,
-} from "../../Store/productSlice";
-import { NavLink } from "react-router-dom";
+} from "../../Features/productSlice";
 
 function Basket() {
   let [shop, setShop] = useState(false);
