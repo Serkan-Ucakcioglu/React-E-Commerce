@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../../Api/api";
 import Loading from "../Loading";
@@ -9,7 +9,10 @@ export default function ProductList() {
   const dispatch = useDispatch();
   const { entities, loading } = useSelector((state) => state.productSlice);
   const [select, setSelect] = useState("choose");
-  const data = entities.filter((product) => product.category === select);
+  const data = useMemo(
+    () => entities.filter((product) => product.category === select),
+    [select, entities]
+  );
 
   const getData = (data) => dispatch(getProduct(data));
 
