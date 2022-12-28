@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { userCheck } from "../../Api/api";
 import { userAuths } from "../../Features/userAuth";
 import InputList from "./InputList";
+import FormHead from "./FormHead";
 
 function Login() {
   const dispatch = useDispatch();
@@ -57,17 +58,7 @@ function Login() {
             onSubmit={handleSubmit(onSubmit)}
             className="px-8 py-6 mt-4 text-left bg-white shadow-lg"
           >
-            <div className="flex justify-center">
-              <NavLink to={"/"}>
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoxYHtHfZpE0uwrQlNjwA5YBKaTykHPBFaD63RzN3lXLsAvu4vnJLOxiHUNsXeLUPIddE&usqp=CAU"
-                  alt="ekinoks"
-                />
-              </NavLink>
-            </div>
-            <h3 className="text-2xl font-bold text-center">
-              Login to your account
-            </h3>
+            <FormHead />
             <div>
               <div className="mt-4">
                 <InputList register={register} errors={errors} />
