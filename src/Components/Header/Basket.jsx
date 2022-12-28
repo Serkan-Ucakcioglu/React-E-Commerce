@@ -46,7 +46,6 @@ function Basket() {
                         );
                       })}
                     </div>
-
                     <Total basket={basket} setShop={setShop} shop={shop} />
                   </div>
                 </div>
