@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../../Api/api";
+import { productSlices } from "../../Features/productSlice";
 import Loading from "../Loading";
 import FilteredProduct from "./FilteredProduct";
 import ProductSelect from "./ProductSelect";
 
 export default function ProductList() {
   const dispatch = useDispatch();
-  const { entities, loading } = useSelector((state) => state.productSlice);
+  const { entities, loading } = useSelector(productSlices);
   const [select, setSelect] = useState("choose");
   const data = useMemo(
     () => entities.filter((product) => product.category === select),
@@ -27,7 +28,6 @@ export default function ProductList() {
   }, []);
 
   if (loading) <Loading />;
-
   return (
     <div className="container">
       <ProductSelect select={select} setSelect={setSelect} />
