@@ -5,11 +5,13 @@ import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 import "react-toastify/dist/ReactToastify.css";
 import { userCheck } from "../../Api/api";
+import { userAuths } from "../../Features/userAuth";
+import InputList from "./InputList";
 
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isError, isFetching } = useSelector((state) => state.userAuth);
+  const { isError, isFetching } = useSelector(userAuths);
   let user = localStorage.getItem("user") == null ? false : true;
 
   const {
@@ -68,48 +70,7 @@ function Login() {
             </h3>
             <div>
               <div className="mt-4">
-                <div>
-                  <label className="block">Email</label>
-                  <input
-                    type="text"
-                    placeholder="username"
-                    {...register("username", {
-                      required: "required !",
-                      minLength: {
-                        value: 4,
-                        message: "Minimum Length 4!",
-                      },
-                      maxLength: {
-                        value: 20,
-                        message: "Maximum Length 4!",
-                      },
-                    })}
-                    className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  />
-
-                  <div className="text-red-500">{errors.username?.message}</div>
-                </div>
-                <div className="mt-4">
-                  <label className="block">Password</label>
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    {...register("password", {
-                      required: "required!",
-                      minLength: {
-                        value: 5,
-                        message: "Minimum Length 5!",
-                      },
-                      maxLength: {
-                        value: 15,
-                        message: "Maximum Length 15!",
-                      },
-                    })}
-                    className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  />
-
-                  <div className="text-red-500">{errors.password?.message}</div>
-                </div>
+                <InputList register={register} errors={errors} />
                 <div className="flex items-baseline justify-between">
                   <button
                     onClick={handleSubmit(onSubmit)}
