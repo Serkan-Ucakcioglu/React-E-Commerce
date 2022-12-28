@@ -14,6 +14,7 @@ function Details() {
   const addProduct = () => {
     dispatch(addBasket(detail));
   };
+
   const fetchDetail = useCallback(
     (signal) => {
       fetch(`https://fakestoreapi.com/products/${id}`, signal)
