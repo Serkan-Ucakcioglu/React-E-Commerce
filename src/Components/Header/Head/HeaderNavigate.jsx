@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import Basket from "./Basket";
+import Basket from "../Basket/Basket";
 
 function HeaderNavigate({ user }) {
   return (

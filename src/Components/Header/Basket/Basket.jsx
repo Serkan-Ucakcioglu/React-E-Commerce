@@ -4,10 +4,10 @@ import {
   remove,
   selectedBasket,
   selectedCount,
-} from "../../Features/productSlice";
+} from "../../../Features/productSlice";
 import BasketList from "./BasketList";
-import Shopping from "./Shopping";
-import Total from "./Total";
+import Shopping from "../Shopping";
+import Total from "../Total";
 
 function Basket() {
   let [shop, setShop] = useState(false);
