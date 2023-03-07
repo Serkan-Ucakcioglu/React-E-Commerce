@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import Basket from "../Basket/Basket";
 import HeaderNavigate from "./HeaderNavigate";
 import HeaderTab from "./HeaderTab";
 import Buttons from "./Buttons";
