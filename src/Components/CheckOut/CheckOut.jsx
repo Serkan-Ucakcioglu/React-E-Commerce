@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectedCount } from "../../Features/productSlice";
-import BasketList from "./BasketList";
+import BasketList from "./Basket/BasketList";
 
 function CheckOut() {
   let count = useSelector(selectedCount);

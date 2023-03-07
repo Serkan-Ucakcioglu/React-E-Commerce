@@ -2,9 +2,9 @@ import { useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import Header from "../Header/Header";
 import { addBasket } from "../../Features/productSlice";
 import DetailList from "./DetailList";
+import Header from "../Header/Head/Header";
 
 function Details() {
   const { id } = useParams();

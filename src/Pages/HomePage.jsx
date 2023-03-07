@@ -1,14 +1,14 @@
-import React from 'react'
-import Header from '../Components/Header/Header'
-import ProductList from '../Components/Section/ProductList'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Header from "../Components/Header/Header";
 
 function HomePage() {
   return (
     <>
-     <Header/>
-     <ProductList/>
+      <Header />
+      <Outlet />
     </>
-  )
+  );
 }
 
 export default HomePage;
