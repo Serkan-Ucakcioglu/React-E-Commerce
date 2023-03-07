@@ -14,7 +14,6 @@ function Shopping({ setShop }) {
           className="-m-2 p-2 text-gray-400 hover:text-gray-500"
         >
           <span className="sr-only">Close panel</span>
-
           <Shop />
         </button>
       </div>
