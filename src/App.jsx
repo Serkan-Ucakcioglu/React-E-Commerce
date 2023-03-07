@@ -11,7 +11,6 @@ import AddProduct from "./Components/Account/UserOperations/AddProduct";
 import EditProduct from "./Components/Account/UserOperations/EditProduct";
 import DeleteProduct from "./Components/Account/UserOperations/DeleteProduct";
 import DetailsPage from "./Pages/DetailsPage";
-import ProductList from "./Components/Section/ProductList";
 
 function App() {
   let user = localStorage.getItem("user") == null ? false : true;
