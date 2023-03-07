@@ -2,17 +2,15 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 function Total({ basket, setShop, shop }) {
+  const total = basket.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
   return (
     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
       <div className="flex justify-between text-base font-medium text-gray-900">
         <p>Total Price:</p>
-        <strong>
-          $
-          {basket.reduce(
-            (total, item) => total + item.price * item.quantity,
-            0
-          )}
-        </strong>
+        <strong>${total}</strong>
       </div>
       <p className="mt-0.5 text-sm text-gray-500">
         Shipping and taxes calculated at checkout.
