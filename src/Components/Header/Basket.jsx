@@ -19,44 +19,6 @@ function Basket() {
     dispatch(remove(product));
   };
 
-  const baskets = count > 0 && (
-    <div>
-      {shop && (
-        <div
-          className="relative z-10"
-          aria-labelledby="slide-over-title"
-          role="dialog"
-          aria-modal="true"
-        >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-          <div className="fixed inset-0 overflow-hidden">
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-                <div className="pointer-events-auto w-screen max-w-md mi mt-24">
-                  <div className="flex h-2/3 flex-col overflow-auto bg-white shadow-xl rounded-md">
-                    <div className="flex-1 overflow-auto py-6 px-4 sm:px-6">
-                      <Shopping setShop={setShop} />
-                      {basket.map((product) => {
-                        return (
-                          <BasketList
-                            product={product}
-                            key={product.id}
-                            removeBasket={removeBasket}
-                          />
-                        );
-                      })}
-                    </div>
-                    <Total basket={basket} setShop={setShop} shop={shop} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-
   return (
     <div className="container">
       <div
@@ -76,7 +38,43 @@ function Basket() {
         )}
       </div>
 
-      {baskets}
+      {count > 0 && (
+        <div>
+          {shop && (
+            <div
+              className="relative z-10"
+              aria-labelledby="slide-over-title"
+              role="dialog"
+              aria-modal="true"
+            >
+              <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+              <div className="fixed inset-0 overflow-hidden">
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                    <div className="pointer-events-auto w-screen max-w-md mi mt-24">
+                      <div className="flex h-2/3 flex-col overflow-auto bg-white shadow-xl rounded-md">
+                        <div className="flex-1 overflow-auto py-6 px-4 sm:px-6">
+                          <Shopping setShop={setShop} />
+                          {basket.map((product) => {
+                            return (
+                              <BasketList
+                                product={product}
+                                key={product.id}
+                                removeBasket={removeBasket}
+                              />
+                            );
+                          })}
+                        </div>
+                        <Total basket={basket} setShop={setShop} shop={shop} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

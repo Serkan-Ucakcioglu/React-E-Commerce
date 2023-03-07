@@ -1,4 +1,5 @@
 import React from "react";
+import Shop from "../../assets/Shop";
 
 function Shopping({ setShop }) {
   return (
@@ -9,26 +10,12 @@ function Shopping({ setShop }) {
       <div className="ml-3 flex h-7 items-center">
         <button
           type="button"
+          onClick={() => setShop((prev) => !prev)}
           className="-m-2 p-2 text-gray-400 hover:text-gray-500"
         >
           <span className="sr-only">Close panel</span>
 
-          <svg
-            className="h-6 w-6 mt-1"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            aria-hidden="true"
-            onClick={() => setShop((prev) => !prev)}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <Shop />
         </button>
       </div>
     </div>
