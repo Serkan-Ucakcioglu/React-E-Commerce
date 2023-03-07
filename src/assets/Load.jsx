@@ -1,6 +1,6 @@
 import React from "react";
 
-function Loading() {
+function Load() {
   return (
     <>
       <svg
@@ -22,4 +22,4 @@ function Loading() {
   );
 }
 
-export default Loading;
+export default Load;
