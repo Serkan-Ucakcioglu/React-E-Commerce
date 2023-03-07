@@ -1,9 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addBasket, remove, updateQuantity } from "../../Features/productSlice";
-import Decrement from "../../assets/Decrement";
-import Quantity from "../../assets/Quantity";
+import {
+  addBasket,
+  remove,
+  updateQuantity,
+} from "../../../Features/productSlice";
+import Decrement from "../../../assets/Decrement";
+import Quantity from "../../../assets/Quantity";
 function BasketContent({ product }) {
   const dispatch = useDispatch();
 

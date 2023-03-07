@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { selectedBasket, selectedCount } from "../../Features/productSlice";
+import { selectedBasket, selectedCount } from "../../../Features/productSlice";
 import BasketProductList from "./BasketProductList";
-import BasketTotal from "./BasketTotal";
+import BasketTotal from "../BasketTotal";
 
 function BasketList() {
   let basket = useSelector(selectedBasket);

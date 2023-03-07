@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectedBasket } from "../../Features/productSlice";
+import { selectedBasket } from "../../../Features/productSlice";
 import BasketContent from "./BasketContent";
 
 function BasketProductList() {
