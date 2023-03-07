@@ -1,17 +1,16 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Header from "./Components/Header/Header";
 import HomePage from "./Pages/HomePage";
-import DetailsPage from "./Pages/DetailsPage";
+import DashBoard from "./Components/Account/DashBoard";
 import Login from "./Components/Forms/Login";
 import CheckOutPage from "./Pages/CheckOutPage";
-import DashBoard from "./Components/Account/DashBoard";
-import Error from "./Components/Error";
 import PrivateRoute from "./Components/PrivateRoute";
+import WelcomeDashboard from "./Components/Account/WelcomeDashboard";
+import Error from "./Components/Error";
 import AddProduct from "./Components/Account/UserOperations/AddProduct";
 import EditProduct from "./Components/Account/UserOperations/EditProduct";
 import DeleteProduct from "./Components/Account/UserOperations/DeleteProduct";
-import WelcomeDashboard from "./Components/Account/WelcomeDashboard";
+import DetailsPage from "./Pages/DetailsPage";
 
 function App() {
   let user = localStorage.getItem("user") == null ? false : true;
@@ -19,7 +18,6 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/header" element={<Header />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/detail/:id" element={<DetailsPage />} />
         <Route path="/login" element={user ? <DashBoard /> : <Login />} />
