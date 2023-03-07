@@ -1,7 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { addBasket, remove, updateQuantity } from "../../Features/productSlice";
 function BasketContent({ product }) {
+  const dispatch = useDispatch();
+
+  const removeBasket = (product) => {
+    dispatch(remove(product));
+  };
+  const quantity = (product) => {
+    dispatch(addBasket(product));
+  };
+
+  const decrement = (product) => {
+    dispatch(updateQuantity(product));
+  };
   return (
     <div
       className="flex items-center justify-around hover:bg-gray-100 -mx-8 px-6 py-5"
