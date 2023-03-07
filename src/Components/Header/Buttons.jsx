@@ -1,6 +1,6 @@
 import React from "react";
 
-function Buttons({ show }) {
+function Buttons({ show, setShow }) {
   return (
     <>
       {show ? (
