@@ -8,7 +8,6 @@ import BasketTotal from "../BasketTotal";
 function BasketList() {
   let basket = useSelector(selectedBasket);
   let count = useSelector(selectedCount);
-
   return (
     <>
       {count > 0 && (

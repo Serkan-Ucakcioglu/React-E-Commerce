@@ -30,7 +30,6 @@ function Login() {
     if (isFetching) {
       toast.info("is fetching...");
     }
-
     if (user) {
       navigate("/account");
       toast.success("süper");
