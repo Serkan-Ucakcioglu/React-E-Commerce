@@ -36,7 +36,6 @@ function Details() {
 
   return (
     <>
-      <Header />
       <div className="container">
         <ul className="flex justify-center items-center mt-20">
           <li>
