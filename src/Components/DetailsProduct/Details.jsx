@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addBasket } from "../../Features/productSlice";
 import DetailList from "./DetailList";
-import Header from "../Header/Head/Header";
 
 function Details() {
   const { id } = useParams();
