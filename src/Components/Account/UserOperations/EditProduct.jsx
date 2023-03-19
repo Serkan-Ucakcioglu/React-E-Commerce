@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { updateUser } from "../../../Api/api";
 function EditProduct() {
   const {
     handleSubmit,
@@ -7,18 +8,7 @@ function EditProduct() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`https://fakestoreapi.com/products/${data.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((json) => console.log(json));
-    alert(`api database işlemeye izin vermiyor console bak
-      ${JSON.stringify(data)}
-    `);
+    updateUser(data);
   };
 
   return (
