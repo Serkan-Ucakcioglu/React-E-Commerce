@@ -32,3 +32,12 @@ export const userCheck = createAsyncThunk(
     }
   }
 );
+
+export const deleteProduct = (data) => {
+  fetch(`https://fakestoreapi.com/products/${data.id}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((json) => console.log(json));
+  alert("api database işlemeye izin vermiyor console bak");
+};
