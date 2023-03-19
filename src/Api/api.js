@@ -41,3 +41,18 @@ export const deleteProduct = (data) => {
     .then((json) => console.log(json));
   alert("api database işlemeye izin vermiyor console bak");
 };
+
+export const addProduct = (data) => {
+  fetch("https://fakestoreapi.com/products", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+  alert(`api database işlemeye izin vermiyor console bak
+      ${JSON.stringify(data)}
+    `);
+};

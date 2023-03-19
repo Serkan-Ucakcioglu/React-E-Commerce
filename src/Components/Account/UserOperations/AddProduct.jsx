@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { addProduct } from "../../../Api/api";
 
 function AddProduct() {
   const {
@@ -8,18 +9,7 @@ function AddProduct() {
     formState: { errors },
   } = useForm();
   const OnSubmit = (data) => {
-    fetch("https://fakestoreapi.com/products", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-    alert(`api database işlemeye izin vermiyor console bak
-        ${JSON.stringify(data)}
-      `);
+    addProduct(data);
   };
 
   return (
